@@ -1,0 +1,26 @@
+.heading {
+  color: red;
+  text-align: left;
+  font-size: 40px;
+}
+.heading-sub {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+  transform: skewX(-20deg);
+}
+
+.icon {
+  animation: icon-rotate infinite 15s linear;
+  -webkit-transform-style: preserve-3d;
+}
+
+@keyframes icon-rotate {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
+}
