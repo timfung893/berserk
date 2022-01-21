@@ -37,17 +37,15 @@ const Products = (props) => {
             setData(productData);
             setFilter(productData);
             setLoading(false);
-          } else {
-            return () => {
-              componentMounted = false;
-            };
           }
+          // return () => {
+          //   componentMounted = false;
+          // };
         });
       });
     }
     getData();
   }, []);
-
 
   // get id for Product component
   function getProduct(id) {
@@ -80,7 +78,7 @@ const Products = (props) => {
     const filteredList = data.filter((x) => x.type === type);
     setFilter(filteredList);
   }
-  
+
   // render data if not loading
 
   const ShowProducts = () => {
