@@ -1,0 +1,73 @@
+{
+  "Casca": [
+    {
+      "desc": "Casca Golden Age Arc",
+      "id": 5,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-15_face.jpg",
+      "price": "$849.00"
+      
+    },
+    {
+      "desc": "Casca Golden Age Arc Deluxe Version",
+      "id": 6,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-15dx_face.jpg",
+      "price": "$899.00"
+      
+    }
+  ],
+  "Griffith": [
+    {
+      "desc": "Griffith, The Falcon of Light",
+      "id": 7,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-05_face_fix.jpg",
+      "price": "$999.00"
+      
+    }
+  ],
+  "Guts": [
+    {
+      "desc": "Guts, Berserker Armor Unleash Edition",
+      "id": 1,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-17_face.jpg",
+      "price": "$1,299.00"
+    },
+    {
+      "desc": "Guts, Berserker Armor Rage Edition Deluxe Version",
+      "id": 2,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-18dx_face.jpg",
+      "price": "$1,449.00"
+    },
+    {
+      "desc": "Guts, The Black Swordsman",
+      "id": 3,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/p/m/pmbr-01bn_face_fix.jpg#",
+      "price": "$1,049.00"
+    },
+    {
+      "desc": "Guts, Berserker Armor",
+      "id": 4,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-04_face_1.jpg",
+      "price": "$949.00"
+    }
+  ],
+  "Others": [
+    {
+      "desc": "Nosferatu Zodd",
+      "id": 8,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-03_face.jpg",
+      "price": "$2,499.00"
+    },
+    {
+      "desc": "Salty",
+      "id": 9,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-07_face_reg.jpg",
+      "price": "$899.00"
+    },
+    {
+      "desc": "Void",
+      "id": 10,
+      "img": "https://www.prime1studio.com/media/catalog/product/cache/1/small_image/460x460/9df78eab33525d08d6e5fb8d27136e95/u/p/upmbr-11_face.jpg",
+      "price": "$899.00"
+    }
+  ]
+}

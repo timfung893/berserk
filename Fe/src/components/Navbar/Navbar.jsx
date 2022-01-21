@@ -1,10 +1,10 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand fw-bolder" href="#">
+        <NavLink className="navbar-brand fw-bolder" to="/">
           <img
             className="icon"
             src="./img/bs-icon.jpg"
@@ -12,7 +12,7 @@ const Navbar = (props) => {
             width="60px"
             alt="icon"
           />
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,57 +27,62 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto bg-white">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
+                to="/about"
+              >
                 About
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/products">
                 Products
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <NavLink
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                to="/"
               >
                 Dropdown
-              </a>
+              </NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <NavLink className="dropdown-item" to="/">
                     Action
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <NavLink className="dropdown-item" to="/">
                     Another action
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <NavLink className="dropdown-item" to="/">
                     Something else here
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </li>
           </ul>
           <div className="login">
-            <a href="" className="btn btn-outline-dark ms-2">
+            <NavLink to="/login" className="btn btn-outline-dark ms-2">
               <i className="fa fa-sign-in"> Login</i>
-            </a>
-            <a href="" className="btn btn-outline-dark ms-2">
+            </NavLink>
+            <NavLink to="/register" className="btn btn-outline-dark ms-2">
               <i className="fa fa-user-plus "> Register</i>
-            </a>
-            <a href="" className="btn btn-outline-dark me-2 ms-2">
+            </NavLink>
+            <NavLink to="/cart" className="btn btn-outline-dark me-2 ms-2">
               <i className="fa fa-shopping-cart "> Cart(0)</i>
-            </a>
+            </NavLink>
           </div>
           <form className="d-flex">
             <input
