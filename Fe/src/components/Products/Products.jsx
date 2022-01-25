@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import Skeleton from "react-loading-skeleton";
 import { NavLink } from "react-router-dom";
 import "./Products.css";
-import { connect } from "react-redux";
 
 const Products = (props) => {
   const [data, setData] = useState([]);
@@ -38,10 +38,11 @@ const Products = (props) => {
             setFilter(productData);
             setLoading(false);
           }
-          // return () => {
-          //   componentMounted = false;
-          // };
         });
+        return () => {
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+          componentMounted = false;
+        };
       });
     }
     getData();
@@ -50,7 +51,6 @@ const Products = (props) => {
   // get id for Product component
   function getProduct(id) {
     props.getProduct(id);
-    console.log(id);
   }
 
   // loading if nothing
@@ -77,6 +77,15 @@ const Products = (props) => {
   function filterProduct(type) {
     const filteredList = data.filter((x) => x.type === type);
     setFilter(filteredList);
+  }
+
+  // shorten product title
+
+  function shortTitle(title) {
+    if (window.innerWidth < 1024) {
+      title.substring(0, 18);
+    }
+    return title;
   }
 
   // render data if not loading
@@ -117,25 +126,14 @@ const Products = (props) => {
           </button>
         </div>
 
-        {/* map data */}
         {filter.map((product) => {
           return (
             <>
-              <div className="col-md-3 my-2">
-                <div
-                  className="card text-black h-100"
-                  key={product.id}
-                  i={product.id}
-                >
-                  <img
-                    className="card-img-top"
-                    src={product.img}
-                    alt="img"
-                    height="250px"
-                    width="150px"
-                  />
+              <div className="col-md-3 my-2" key={product.id}>
+                <div className="card text-black h-100">
+                  <img className="card-img-top" src={product.img} alt="img" />
                   <div className="card-body d-flex flex-column justify-content-md-between">
-                    <h4 className="card-title">{product.desc}</h4>
+                    <h4 className="card-title">{shortTitle(product.desc)}</h4>
                     <p className="card-text">{product.price}</p>
                   </div>
                   <div className="buttons d-flex justify-content-center">
@@ -171,7 +169,9 @@ const Products = (props) => {
             <hr />
           </div>
         </div>
-        <div className="row">{loading ? <Loading /> : <ShowProducts />}</div>
+        <div className="row products">
+          {loading ? <Loading /> : <ShowProducts />}
+        </div>
       </div>
     </div>
   );

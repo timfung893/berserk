@@ -2,3 +2,16 @@
   background: url("../../../public/img/wall.jpg") no-repeat center/cover;
   transition: all 0.2s linear;
 }
+
+@media screen and (max-width: 1023px) {
+  .products {
+    flex-flow: row wrap;
+  }
+  .details {
+    width: 100% !important;
+  }
+  .buttons {
+    flex-flow: column;
+    margin: 0 auto;
+  }
+} ;
