@@ -8,7 +8,7 @@ const Hero = () => {
         src="../img/bg.jpg"
         height="500px"
         alt="background"
-        img
+        
       />
       <div className="card-img-overlay display-4 container d-flex flex-column justify-content-center">
         <h4 className="heading ">
