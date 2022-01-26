@@ -8,8 +8,8 @@ const Navbar = (props) => {
           <img
             className="icon"
             src="./img/bs-icon.jpg"
-            height="60px"
-            width="60px"
+            height="80px"
+            width="80px"
             alt="icon"
           />
         </NavLink>

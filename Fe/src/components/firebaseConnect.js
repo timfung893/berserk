@@ -11,8 +11,10 @@ const firebaseConfig = {
   measurementId: "G-NYV2F7EFR7",
 };
 
+
+
 // Initialize Firebase
 
 firebase.initializeApp(firebaseConfig);
 
-export const productSource = firebase.database().ref("BerserkData/");
+export const productSource = firebase.database().ref("BerserkData/"); 
