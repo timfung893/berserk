@@ -32,15 +32,13 @@ const Products = (props) => {
             price: price,
             type: type,
           });
-
-          if (componentMounted) {
-            setData(productData);
-            setFilter(productData);
-            setLoading(false);
-          }
         });
+        if (componentMounted) {
+          setData(productData);
+          setFilter(productData);
+          setLoading(false);
+        }
         return () => {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
           componentMounted = false;
         };
       });
@@ -84,13 +82,15 @@ const Products = (props) => {
   function shortTitle(title) {
     if (window.innerWidth < 1024) {
       title.substring(0, 18);
+    } else {
+      return title;
     }
-    return title;
   }
 
   // render data if not loading
 
   const ShowProducts = () => {
+    console.log(filter);
     return (
       <>
         <div className="buttons mb-2 justify-content-center">
@@ -128,32 +128,30 @@ const Products = (props) => {
 
         {filter.map((product) => {
           return (
-            <>
-              <div className="col-md-3 my-2" key={product.id}>
-                <div className="card text-black h-100">
-                  <img className="card-img-top" src={product.img} alt="img" />
-                  <div className="card-body d-flex flex-column justify-content-md-between">
-                    <h4 className="card-title">{shortTitle(product.desc)}</h4>
-                    <p className="card-text">{product.price}</p>
-                  </div>
-                  <div className="buttons d-flex justify-content-center">
-                    <NavLink
-                      className="btn btn-outline-success fw-bolder me-2 mb-2"
-                      to="./cart"
-                    >
-                      Add to cart
-                    </NavLink>
-                    <NavLink
-                      className="btn btn-outline-info fw-bolder me-2 mb-2"
-                      to={`/product/${product.id}`}
-                      onClick={() => getProduct(product.id)}
-                    >
-                      Details
-                    </NavLink>
-                  </div>
+            <div className="col-md-3 my-2" key={product.id}>
+              <div className="card text-black h-100">
+                <img className="card-img-top" src={product.img} alt="img" />
+                <div className="card-body d-flex flex-column justify-content-md-between">
+                  <h4 className="card-title">{shortTitle(product.desc)}</h4>
+                  <p className="card-text">{product.price}</p>
+                </div>
+                <div className="buttons d-flex justify-content-center mx-auto">
+                  <NavLink
+                    className="btn btn-outline-success fw-bolder mb-2"
+                    to="./cart"
+                  >
+                    Add to cart
+                  </NavLink>
+                  <NavLink
+                    className="btn btn-outline-info fw-bolder mb-2"
+                    to={`/product/${product.id}`}
+                    onClick={() => getProduct(product.id)}
+                  >
+                    Details
+                  </NavLink>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </>

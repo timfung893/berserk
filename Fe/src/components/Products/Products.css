@@ -3,6 +3,11 @@
   transition: all 0.2s linear;
 }
 
+.buttons {
+  margin: 0 auto;
+  gap: 1.5px;
+}
+
 @media screen and (max-width: 1023px) {
   .products {
     flex-flow: row wrap;
@@ -12,6 +17,5 @@
   }
   .buttons {
     flex-flow: column;
-    margin: 0 auto;
   }
 } ;

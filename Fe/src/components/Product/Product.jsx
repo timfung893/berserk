@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import { NavLink } from "react-router-dom";
 import "./Product.css";
+import Slider from "react-slick";
 
+// map data
 const Product = (props) => {
   const productItem = props.productItem;
   console.log(productItem);
-  const [product, setProduct] = useState([]);
-  const [data, setData] = useState([]);
+  const [product, setProduct] = useState([productItem]);
+  const [data, setData] = useState([productItem]);
   const [loading, setLoading] = useState(false);
 
   let componentMounted = true;
@@ -44,14 +46,11 @@ const Product = (props) => {
             price: price,
             type: type,
           });
-
-          if (componentMounted) {
-            setData(productData);
-            const newList = productData.filter((x) => x.id === productItem);
-            setProduct(newList);
-            setLoading(false);
-          }
         });
+        if (componentMounted) {
+          setData(productData);
+          setLoading(false);
+        }
         return () => {
           componentMounted = false;
         };
@@ -59,6 +58,47 @@ const Product = (props) => {
     }
     getProduct();
   }, []);
+
+  // setting slider
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  // get id for Product component
+  function getProduct(id) {
+    props.getProduct(id);
+  }
 
   // related products
   // start with id = 0
@@ -68,22 +108,27 @@ const Product = (props) => {
       <>
         {data.map((data) => {
           if (data.id !== productItem) {
-            if (countProduct <= 3) {
+            if (countProduct <= 7) {
               countProduct++;
               return (
-                <>
-                  <div class="col-md-3" key={data.id}>
-                    <NavLink to={`/product/${data.id}`}>
-                      <img class="card-img-top" src={data.img} alt="data img" />
-                    </NavLink>
-                    <div class="card-body">
-                      <h4 class="card-title">
-                        {data.desc.substring(0, 20) + "..."}
-                      </h4>
-                      <p class="card-text">{data.price}</p>
-                    </div>
+                <div className="col-md-3" key={data.id}>
+                  <NavLink
+                    to={`/product/${data.id}`}
+                    onClick={() => getProduct(data.id)}
+                  >
+                    <img
+                      className="card-img-top"
+                      src={data.img}
+                      alt="data img"
+                    />
+                  </NavLink>
+                  <div className="card-body">
+                    <h4 className="card-title">
+                      {data.desc.substring(0, 20) + "..."}
+                    </h4>
+                    <p className="card-text">{data.price}</p>
                   </div>
-                </>
+                </div>
               );
             }
           }
@@ -103,43 +148,52 @@ const Product = (props) => {
   const ShowProduct = () => {
     return (
       <>
-        {product.map((data) => {
-          return (
-            <>
-              <div className="col-md-8" key={data.id}>
-                <div className="card text-white">
-                  <img src={data.img1} alt="" />
+        {data.map((data) => {
+          if (data.id === productItem)
+            return (
+              <React.Fragment key={data.id}>
+                <div className="col-md-8">
+                  <Slider className="card text-white product-img" {...settings}>
+                    <div className="img me-2">
+                      <img src={data.img1} alt="" />
+                    </div>
+                    <div className="img">
+                      <img src={data.img2} alt="" />
+                    </div>
+                    <div className="img">
+                      <img src={data.img3} alt="" />
+                    </div>
+                  </Slider>
                 </div>
-              </div>
-              <div className="col-md-4 details">
-                <div className="card-body">
-                  <h4 className="card-title ">{data.desc}</h4>
-                  <p className="card-text">{data.price}</p>
-                  <p className="card-text fst-italic">{`"${data.desc2}"`}</p>
-                  <p className="card-text ">{data.desc3}</p>
+                <div className="col-md-4 details">
+                  <div className="card-body">
+                    <h4 className="card-title ">{data.desc}</h4>
+                    <p className="card-text">{data.price}</p>
+                    <p className="card-text fst-italic">{`"${data.desc2}"`}</p>
+                    <p className="card-text ">{data.desc3}</p>
+                  </div>
+                  <div className=" d-flex justify-content-center">
+                    <NavLink
+                      className="btn btn-outline-success fw-bolder me-2 mb-2"
+                      to="./cart"
+                    >
+                      Add to cart
+                    </NavLink>
+                    <NavLink
+                      className="btn btn-outline-info fw-bolder me-2 mb-2"
+                      to={`/product/${product.id}`}
+                    >
+                      Favorite
+                    </NavLink>
+                  </div>
                 </div>
-                <div className=" d-flex justify-content-center">
-                  <NavLink
-                    className="btn btn-outline-success fw-bolder me-2 mb-2"
-                    to="./cart"
-                  >
-                    Add to cart
-                  </NavLink>
-                  <NavLink
-                    className="btn btn-outline-info fw-bolder me-2 mb-2"
-                    to={`/product/${product.id}`}
-                  >
-                    Favorite
-                  </NavLink>
+                {/* related products */}
+                <div className="row">
+                  <h2 className="text-center my-4">Related Products</h2>
+                  <RelatedProducts />
                 </div>
-              </div>
-              {/* related products */}
-              <div className="row">
-                <h2 className="text-center my-4">Related Products</h2>
-                <RelatedProducts />
-              </div>
-            </>
-          );
+              </React.Fragment>
+            );
         })}
       </>
     );
@@ -160,4 +214,12 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Product);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getProduct: (getItem) => {
+      dispatch({ type: "GET_PRODUCT", getItem });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
