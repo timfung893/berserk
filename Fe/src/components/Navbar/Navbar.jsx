@@ -14,7 +14,7 @@ const Navbar = (props) => {
           />
         </NavLink>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler mx-4"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"

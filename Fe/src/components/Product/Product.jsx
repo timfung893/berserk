@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import { NavLink } from "react-router-dom";
 import "./Product.css";
 import Slider from "react-slick";
+import Skeleton from "react-loading-skeleton";
 
 // map data
 const Product = (props) => {
+  const productItemArr = [];
   const productItem = props.productItem;
+  productItemArr.push(productItem);
   console.log(productItem);
-  const [product, setProduct] = useState([productItem]);
-  const [data, setData] = useState([productItem]);
+
+  const [producItem, setProductItem] = useState([productItemArr]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   let componentMounted = true;
@@ -25,7 +28,7 @@ const Product = (props) => {
         products.forEach((product) => {
           const key = product.key;
           const desc = product.val().desc;
-          const img = product.val().img;
+          const { img } = product.val();
           const img1 = product.val().img1;
           const img2 = product.val().img2;
           const img3 = product.val().img3;
@@ -140,7 +143,20 @@ const Product = (props) => {
   // loading if nothing
 
   const Loading = () => {
-    return <>... loading</>;
+    return (
+      <>
+        <div className="col-md-8">
+          <Skeleton height={100} width={300} />
+          <Skeleton height={100} width={300} />
+          <Skeleton height={100} width={300} />
+        </div>
+        <div className="col-md-4">
+          <Skeleton height={100} width={300} />
+          <Skeleton height={100} width={300} />
+          <Skeleton height={100} width={300} />
+        </div>
+      </>
+    );
   };
 
   // render data if not loading
@@ -181,7 +197,7 @@ const Product = (props) => {
                     </NavLink>
                     <NavLink
                       className="btn btn-outline-info fw-bolder me-2 mb-2"
-                      to={`/product/${product.id}`}
+                      to={`/product/${data.id}`}
                     >
                       Favorite
                     </NavLink>

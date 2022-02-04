@@ -56,16 +56,16 @@ const Products = (props) => {
     return (
       <>
         <div className="col-md-3">
-          <Skeleton count={4} height={350} />
+          <Skeleton width={300} height={50} />
         </div>
         <div className="col-md-3">
-          <Skeleton count={4} height={350} />
+          <Skeleton width={300} height={50} />
         </div>
         <div className="col-md-3">
-          <Skeleton count={4} height={350} />
+          <Skeleton width={300} height={50} />
         </div>
         <div className="col-md-3">
-          <Skeleton count={4} height={350} />
+          <Skeleton width={300} height={50} />
         </div>
       </>
     );

@@ -6,7 +6,6 @@ const Hero = () => {
       <img
         className="card-img-top"
         src="../img/bg.jpg"
-        height="500px"
         alt="background"
         width="100%"
       />
