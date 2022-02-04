@@ -103,6 +103,10 @@ const Product = (props) => {
     props.getProduct(id);
   }
 
+  // add to cart
+
+  function addToCart() {}
+
   // related products
   // start with id = 0
   var countProduct = 0;
@@ -191,7 +195,7 @@ const Product = (props) => {
                   <div className=" d-flex justify-content-center">
                     <NavLink
                       className="btn btn-outline-success fw-bolder me-2 mb-2"
-                      to="./cart"
+                      onClick={() => addToCart(data)}
                     >
                       Add to cart
                     </NavLink>
