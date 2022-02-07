@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+
 const Navbar = (props) => {
+  const cart = props.cart.length;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -81,7 +84,7 @@ const Navbar = (props) => {
               <i className="fa fa-user-plus "> Register</i>
             </NavLink>
             <NavLink to="/cart" className="btn btn-outline-dark me-2 ms-2">
-              <i className="fa fa-shopping-cart "> Cart(0)</i>
+              <i className="fa fa-shopping-cart "> Cart({cart})</i>
             </NavLink>
           </div>
           <form className="d-flex">
@@ -101,6 +104,10 @@ const Navbar = (props) => {
   );
 };
 
-Navbar.propTypes = {};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    cart: state.cart,
+  };
+};
 
-export default Navbar;
+export default connect(mapStateToProps, null)(Navbar);

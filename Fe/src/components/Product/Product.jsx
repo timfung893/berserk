@@ -8,12 +8,12 @@ import Skeleton from "react-loading-skeleton";
 
 // map data
 const Product = (props) => {
-  const productItemArr = [];
+  // const productItemArr = [];
   const productItem = props.productItem;
-  productItemArr.push(productItem);
+  // productItemArr.push(productItem);
   console.log(productItem);
 
-  const [producItem, setProductItem] = useState([productItemArr]);
+  // const [producItem, setProductItem] = useState([productItemArr]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -99,13 +99,14 @@ const Product = (props) => {
   };
 
   // get id for Product component
-  function getProduct(id) {
-    props.getProduct(id);
+  function getProductId(id) {
+    props.getProductId(id);
   }
 
-  // add to cart
-
-  function addToCart() {}
+  // get product
+  function getProduct(product) {
+    props.getProduct(product);
+  }
 
   // related products
   // start with id = 0
@@ -121,7 +122,7 @@ const Product = (props) => {
                 <div className="col-md-3" key={data.id}>
                   <NavLink
                     to={`/product/${data.id}`}
-                    onClick={() => getProduct(data.id)}
+                    onClick={() => getProductId(data.id)}
                   >
                     <img
                       className="card-img-top"
@@ -133,7 +134,7 @@ const Product = (props) => {
                     <h4 className="card-title">
                       {data.desc.substring(0, 20) + "..."}
                     </h4>
-                    <p className="card-text">{data.price}</p>
+                    <p className="card-text">${data.price}</p>
                   </div>
                 </div>
               );
@@ -193,12 +194,13 @@ const Product = (props) => {
                     <p className="card-text ">{data.desc3}</p>
                   </div>
                   <div className=" d-flex justify-content-center">
-                    <NavLink
+                    <button
                       className="btn btn-outline-success fw-bolder me-2 mb-2"
-                      onClick={() => addToCart(data)}
+                      to=""
+                      onClick={() => getProduct(data)}
                     >
                       Add to cart
-                    </NavLink>
+                    </button>
                     <NavLink
                       className="btn btn-outline-info fw-bolder me-2 mb-2"
                       to={`/product/${data.id}`}
@@ -231,13 +233,21 @@ const Product = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     productItem: state.productItem,
+    cart: state.cart,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getProduct: (getItem) => {
+    getProductId: (getItem) => {
       dispatch({ type: "GET_PRODUCT", getItem });
+    },
+    getProduct: (getProduct) => {
+      dispatch({ type: "ADD_TO_CART", getProduct });
+    },
+
+    addItem: (product) => {
+      dispatch({ type: "ADD_ITEM", payload: product });
     },
   };
 };

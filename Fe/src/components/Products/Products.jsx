@@ -47,8 +47,13 @@ const Products = (props) => {
   }, []);
 
   // get id for Product component
-  function getProduct(id) {
-    props.getProduct(id);
+  function getProductId(id) {
+    props.getProductId(id);
+  }
+
+  // get product
+  function getProduct(product) {
+    props.getProduct(product);
   }
 
   // loading if nothing
@@ -133,19 +138,20 @@ const Products = (props) => {
                 <img className="card-img-top" src={product.img} alt="img" />
                 <div className="card-body d-flex flex-column justify-content-md-between">
                   <h4 className="card-title">{shortTitle(product.desc)}</h4>
-                  <p className="card-text">{product.price}</p>
+                  <p className="card-text">${product.price}</p>
                 </div>
                 <div className="buttons d-flex justify-content-center mx-auto">
                   <NavLink
                     className="btn btn-outline-success fw-bolder mb-2"
-                    to="./cart"
+                    to="/cart"
+                    onClick={() => getProduct(product)}
                   >
-                    Add to cart
+                    Buy now
                   </NavLink>
                   <NavLink
                     className="btn btn-outline-info fw-bolder mb-2"
                     to={`/product/${product.id}`}
-                    onClick={() => getProduct(product.id)}
+                    onClick={() => getProductId(product.id)}
                   >
                     Details
                   </NavLink>
@@ -175,12 +181,21 @@ const Products = (props) => {
   );
 };
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    cart: state.cart,
+  };
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getProduct: (getItem) => {
+    getProductId: (getItem) => {
       dispatch({ type: "GET_PRODUCT", getItem });
+    },
+    getProduct: (getProduct) => {
+      dispatch({ type: "ADD_TO_CART", getProduct });
     },
   };
 };
 
-export default connect(null, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
