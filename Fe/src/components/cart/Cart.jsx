@@ -21,26 +21,30 @@ const Cart = (props) => {
       <>
         {cartData.map((data) => {
           return (
-            <div className="row" key={data.id}>
-              <div className="col-md-4 my-2">
-                <div className="card text-white bg-primary">
-                  <img className="card-img-top" src={data.img} alt="" />
+            <div className="row justify-content-center" key={data.id}>
+              <div className="col-md-3 my-2">
+                <div className="card text-white">
+                  <img
+                    className="card-img-top"
+                    src={data.img}
+                    alt="product img"
+                  />
                 </div>
               </div>
               <div className="col-md-4">
                 <h4 className="card-title">{data.desc}</h4>
                 <p className="card-text">
-                  {data.id} x ${data.price} = ${data.id * data.price}
+                  {data.qty} x ${data.price} = ${data.qty * data.price}
                 </p>
-                <div className="buttons d-flex justify-content-center mx-auto">
+                <div className="buttons d-flex justify-content-center flex-row mx-auto">
                   <button
-                    className="btn btn-outline-success fw-bolder mb-2"
+                    className="btn btn-outline-success fw-bolder mx-1 mb-2"
                     onClick={(e) => addItem(e, data)}
                   >
                     <i className="fa fa-plus"></i>
                   </button>
                   <button
-                    className="btn btn-outline-success fw-bolder mb-2"
+                    className="btn btn-outline-dark fw-bolder mb-2"
                     onClick={(e) => delItem(e, data)}
                   >
                     <i className="fa fa-minus"></i>

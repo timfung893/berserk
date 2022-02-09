@@ -193,7 +193,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch({ type: "GET_PRODUCT", getItem });
     },
     getProduct: (getProduct) => {
-      dispatch({ type: "ADD_TO_CART", getProduct });
+      dispatch({ type: "ADD_ITEM", payload: getProduct });
     },
   };
 };

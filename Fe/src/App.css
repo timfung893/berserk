@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -7,7 +8,6 @@
   pointer-events: none;
   animation: App-logo-spin infinite 20s linear;
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -22,6 +22,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+img {
+  border-radius: 15px !important;
 }
 
 @keyframes App-logo-spin {

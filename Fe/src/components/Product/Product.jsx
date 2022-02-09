@@ -189,7 +189,7 @@ const Product = (props) => {
                 <div className="col-md-4 details">
                   <div className="card-body">
                     <h4 className="card-title ">{data.desc}</h4>
-                    <p className="card-text">{data.price}</p>
+                    <p className="card-text">${data.price}</p>
                     <p className="card-text fst-italic">{`"${data.desc2}"`}</p>
                     <p className="card-text ">{data.desc3}</p>
                   </div>
@@ -243,11 +243,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch({ type: "GET_PRODUCT", getItem });
     },
     getProduct: (getProduct) => {
-      dispatch({ type: "ADD_TO_CART", getProduct });
-    },
-
-    addItem: (product) => {
-      dispatch({ type: "ADD_ITEM", payload: product });
+      dispatch({ type: "ADD_ITEM", payload: getProduct });
     },
   };
 };

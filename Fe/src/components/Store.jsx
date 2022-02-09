@@ -1,3 +1,5 @@
+import { productSource } from "./firebaseConnect";
+
 var redux = require("redux");
 
 const InitialState = {
@@ -6,29 +8,44 @@ const InitialState = {
 };
 
 const allReducer = (state = InitialState, action) => {
+  const product = action.payload;
   switch (action.type) {
     case "GET_PRODUCT":
       return { ...state, productItem: action.getItem };
-    case "ADD_TO_CART":
-      return { ...state, cart: [...state.cart, action.getProduct] };
+
     case "ADD_ITEM":
-      const product = action.payload;
       const productExist = state.cart.find((x) => x.id === product.id);
       if (productExist) {
-        return state.cart.map((x) =>
-          x.id === product.id ? { ...x, id: x.id + 1 } : x
-        );
-      }
-      break;
-    case "DEL_ITEM":
-      const productExist1 = state.cart.find((x) => x.id === product.id);
-      if (productExist1) {
-        return state.cart.map((x) =>
-          x.id === product.id ? { ...x, quantity: x.quantity - 1 } : x
-        );
+        return {
+          ...state,
+          cart: state.cart.map((x) =>
+            x.id === product.id ? { ...x, qty: x.qty + 1 } : x
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...product, qty: 1 }],
+        };
       }
 
-      break;
+    case "DEL_ITEM":
+      const productExist1 = state.cart.find((x) => x.id === product.id);
+      // if qty = 1, filter cart
+      if (productExist1.qty === 1) {
+        return {
+          ...state,
+          cart: state.cart.filter((x) => x.id !== product.id),
+        };
+      } else {
+        return {
+          ...state,
+          cart: state.cart.map((x) =>
+            x.id === product.id ? { ...x, qty: x.qty - 1 } : x
+          ),
+        };
+      }
+
     default:
       return state;
   }
