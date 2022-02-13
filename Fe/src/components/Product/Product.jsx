@@ -7,15 +7,18 @@ import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 
 // map data
-const Product = (props) => {
+const Product = React.memo((props) => {
   // const productItemArr = [];
-  const productItem = props.productItem;
+  console.log("rendered");
+  const productItem = props.productItem.id;
   // productItemArr.push(productItem);
   console.log(productItem);
 
-  // const [producItem, setProductItem] = useState([productItemArr]);
+  const [product, setProduct] = useState(productItem);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  console.log(product);
 
   let componentMounted = true;
   useEffect(() => {
@@ -52,11 +55,10 @@ const Product = (props) => {
         });
         if (componentMounted) {
           setData(productData);
+          // setProduct(productItem);
           setLoading(false);
         }
-        return () => {
-          componentMounted = false;
-        };
+        return (componentMounted = false);
       });
     }
     getProduct();
@@ -99,8 +101,8 @@ const Product = (props) => {
   };
 
   // get id for Product component
-  function getProductId(id) {
-    props.getProductId(id);
+  function getProductId(product) {
+    props.getProductId(product);
   }
 
   // get product
@@ -122,7 +124,7 @@ const Product = (props) => {
                 <div className="col-md-3" key={data.id}>
                   <NavLink
                     to={`/product/${data.id}`}
-                    onClick={() => getProductId(data.id)}
+                    onClick={() => getProductId(data)}
                   >
                     <img
                       className="card-img-top"
@@ -228,7 +230,7 @@ const Product = (props) => {
       </div>
     </div>
   );
-};
+});
 
 const mapStateToProps = (state, ownProps) => {
   return {

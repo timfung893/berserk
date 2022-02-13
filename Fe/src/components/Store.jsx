@@ -3,7 +3,7 @@ import { productSource } from "./firebaseConnect";
 var redux = require("redux");
 
 const InitialState = {
-  productItem: {},
+  productItem: [],
   cart: [],
 };
 

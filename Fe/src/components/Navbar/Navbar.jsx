@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import Nav from "./Navbar.css";
 
 const Navbar = (props) => {
   const cart = props.cart.length;
@@ -30,11 +31,7 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto bg-white">
             <li className="nav-item">
-              <NavLink
-                className="nav-link active"
-                aria-current="page"
-                to="/about"
-              >
+              <NavLink className="nav-link" aria-current="page" to="/about">
                 About
               </NavLink>
             </li>
@@ -43,18 +40,23 @@ const Navbar = (props) => {
                 Products
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/favorites">
+                Your Favorites
+              </NavLink>
+            </li>
+            {/* <li className="nav-item">
               <NavLink
-                className="nav-link dropdown-toggle"
+                className="nav-link"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                to="/"
+                to="/favorites"
               >
-                Dropdown
-              </NavLink>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                Your Favorites
+              </NavLink> */}
+            {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <NavLink className="dropdown-item" to="/">
                     Action
@@ -73,8 +75,8 @@ const Navbar = (props) => {
                     Something else here
                   </NavLink>
                 </li>
-              </ul>
-            </li>
+              </ul> */}
+            {/* </li> */}
           </ul>
           <div className="login">
             <NavLink to="/login" className="btn btn-outline-dark ms-2">

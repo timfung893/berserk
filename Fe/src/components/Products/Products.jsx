@@ -47,8 +47,8 @@ const Products = (props) => {
   }, []);
 
   // get id for Product component
-  function getProductId(id) {
-    props.getProductId(id);
+  function getProductId(product) {
+    props.getProductId(product);
   }
 
   // get product
@@ -151,7 +151,7 @@ const Products = (props) => {
                   <NavLink
                     className="btn btn-outline-info fw-bolder mb-2"
                     to={`/product/${product.id}`}
-                    onClick={() => getProductId(product.id)}
+                    onClick={() => getProductId(product)}
                   >
                     Details
                   </NavLink>
@@ -166,7 +166,7 @@ const Products = (props) => {
 
   return (
     <div className="container-fluid bg">
-      <div className="container py-5 my-5">
+      <div className="container py-5 ">
         <div className="row">
           <div className="col-12">
             <h1 className="text-center fw-bolder">Latest Products</h1>

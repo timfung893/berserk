@@ -1,0 +1,22 @@
+.nav-link {
+  font-weight: 500;
+  position: relative;
+}
+/* .nav-link:hover {
+  padding: 20px;
+  background-color: red;
+} */
+
+.nav-link:after {
+  position: absolute;
+  left: 0;
+  width: 0%;
+  padding: 20px;
+  border-bottom: solid 2px red;
+}
+.nav-link:hover:after {
+  width: 100%;
+  padding: 20px;
+  border-bottom: solid 2px red;
+  transition: 0.2s ease;
+}
