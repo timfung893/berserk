@@ -8,7 +8,9 @@ const About = () => {
       <div className="container-fluid py-5 bg2">
         <div className="row">
           <div className="col-12">
-            <h1 className="text-center fw-bolder">The Legend Of Berserk</h1>
+            <h1 className="text-center fw-bolder about-title">
+              The Legend Of Berserk
+            </h1>
           </div>
         </div>
       </div>
@@ -94,8 +96,9 @@ const About = () => {
             <br></br>
             Allow the strand of causality to reel you in and follow Guts on a
             journey to defy destiny and to remain human in an inhuman world.
-            <h2 className="py-2">READ BERSERK BY KENTARO MIURA</h2>
+            <br></br>
             <span className="about-desc-span">(by grimdarkmagazine)</span>
+            <h2 className="my-4">READ BERSERK BY KENTARO MIURA</h2>
           </p>
         </div>
       </div>

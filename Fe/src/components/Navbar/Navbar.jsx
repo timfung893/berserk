@@ -29,18 +29,22 @@ const Navbar = (props) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto bg-white">
-            <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/about">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto bg-white justify-content-between">
+            <li className="nav-item fw-bolder">
+              <NavLink
+                className="nav-link mx-2"
+                aria-current="page"
+                to="/about"
+              >
                 About
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item fw-bolder mx-2">
               <NavLink className="nav-link" to="/products">
                 Products
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item fw-bolder mx-2">
               <NavLink className="nav-link" to="/favorites">
                 Your Favorites
               </NavLink>

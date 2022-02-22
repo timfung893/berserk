@@ -1,6 +1,7 @@
 .bg {
-  background: url("../../../public/img/wall.jpg") no-repeat center/cover;
+  background: url("../../../public/img/guts3.jpg") no-repeat center/cover;
   transition: all 0.2s linear;
+  border-radius: 120px 0 120px 0;
 }
 
 .buttons {

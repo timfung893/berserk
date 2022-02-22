@@ -1,0 +1,21 @@
+.bg-footer {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  color: black;
+  bottom: 0;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+.author {
+  font-family: "destroyregular", sans-serif;
+  font-size: 15px;
+  margin-bottom: 0;
+}

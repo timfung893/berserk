@@ -4,8 +4,11 @@ import Hero from "./components/Hero/Hero";
 import Products from "./components/Products/Products";
 import Product from "./components/Product/Product";
 import Cart from "./components/cart/Cart";
+import Footer from "./components/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

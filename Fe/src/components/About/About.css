@@ -1,10 +1,9 @@
-@import url(https://allfont.net/allfont.css?fonts=destroy);
-
 .bg2 {
   background: url("../../../public/img/about.png") no-repeat center/cover;
   min-height: 200px;
   max-height: 800px;
   position: relative;
+  border-radius: 120px 0 120px 0;
 }
 
 .bg2 h1 {
@@ -15,6 +14,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 25px;
   text-transform: uppercase;
+  /* font-family: "destroyregular", sans-serif !important; */
 }
 
 .about-img {
@@ -26,7 +26,7 @@
   text-align: left;
 }
 .about-desc h2 {
-  font-family: "Destroy", sans-serif;
+  font-family: "destroyregular", sans-serif !important;
   font-size: 25px;
 }
 .about-desc-span {
