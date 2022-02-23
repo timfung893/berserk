@@ -36,6 +36,9 @@ const Products = (props) => {
         if (componentMounted) {
           setData(productData);
           setFilter(productData);
+          props.getAllProducts(filter);
+          console.log(props.allProducts);
+          // setFilter(props.allProducts);
           setLoading(false);
         }
         return () => {
@@ -96,6 +99,10 @@ const Products = (props) => {
 
   const ShowProducts = () => {
     console.log(filter);
+    function getAllProducts() {
+      props.getAllProducts(filter);
+      console.log(props.allProducts);
+    }
     return (
       <>
         <div className="buttons mb-2 justify-content-center">
@@ -186,6 +193,7 @@ const Products = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     cart: state.cart,
+    allProducts: [],
   };
 };
 
@@ -196,6 +204,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     getProduct: (getProduct) => {
       dispatch({ type: "ADD_ITEM", payload: getProduct });
+    },
+    getAllProducts: (data) => {
+      dispatch({ type: "ALL_PRODUCTS", data });
     },
   };
 };

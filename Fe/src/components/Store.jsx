@@ -7,6 +7,7 @@ const InitialState = {
   cart: [],
   fav: [],
   tempText: "",
+  allProducts: [],
 };
 
 const allReducer = (state = InitialState, action) => {
@@ -87,7 +88,11 @@ const allReducer = (state = InitialState, action) => {
       }
 
     // search product name
+    case "SEARCH_TEXT":
+      return { ...state, tempText: action.tempText };
 
+    case "ALL_PRODUCTS":
+      return { ...state, allProducts: action.data };
     default:
       return state;
   }
