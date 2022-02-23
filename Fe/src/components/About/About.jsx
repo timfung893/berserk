@@ -83,7 +83,7 @@ const About = () => {
             className="about-video mx-auto"
             controls="true"
           />
-          <p className="about-desc my-4">
+          <p className="about-desc mt-4 mb-0">
             For those wanting to lose themselves into Berserk, I fully recommend
             reading the manga series first and foremost. Berserk truly shines on
             the page as Guts, Griffith, the apostles, and other motley
@@ -98,7 +98,7 @@ const About = () => {
             journey to defy destiny and to remain human in an inhuman world.
             <br></br>
             <span className="about-desc-span">(by grimdarkmagazine)</span>
-            <h2 className="my-4">READ BERSERK BY KENTARO MIURA</h2>
+            <h2 className="mt-4 mb-0">READ BERSERK BY KENTARO MIURA</h2>
           </p>
         </div>
       </div>
