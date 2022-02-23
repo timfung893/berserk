@@ -109,6 +109,10 @@ const Product = React.memo((props) => {
   function getProduct(product) {
     props.getProduct(product);
   }
+  // add to favs
+  function getProductFav(product) {
+    props.getProductFav(product);
+  }
 
   // related products
   // start with id = 0
@@ -206,6 +210,7 @@ const Product = React.memo((props) => {
                     <NavLink
                       className="btn btn-outline-info fw-bolder me-2 mb-2"
                       to={`/product/${data.id}`}
+                      onClick={() => getProductFav(data)}
                     >
                       Favorite
                     </NavLink>
@@ -236,6 +241,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     productItem: state.productItem,
     cart: state.cart,
+    fav: state.fav,
   };
 };
 
@@ -246,6 +252,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     getProduct: (getProduct) => {
       dispatch({ type: "ADD_ITEM", payload: getProduct });
+    },
+    getProductFav: (getProductFav) => {
+      dispatch({ type: "ADD_ITEM_FAV", payload: getProductFav });
     },
   };
 };

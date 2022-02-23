@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Fav from "./components/Favorites/Fav";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/favorites" element={<Fav />} />
       </Routes>
       <Footer />
     </div>

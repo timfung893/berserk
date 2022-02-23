@@ -129,7 +129,7 @@ function Login(props) {
 
   return (
     <div className="container-fluid-log">
-      <div className="container-log">
+      <div className="container-log bg-light">
         <h2 className="login-title">Login Form</h2>
         <form className="form-log">
           <div className="form-group-log">

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./Cart.css";
+import "./Fav.css";
 
-const Cart = (props) => {
+const Fav = (props) => {
   //  del item from cart
   function delItem(e, product) {
     e.preventDefault();
@@ -15,12 +15,12 @@ const Cart = (props) => {
   }
 
   // cart data
-  var cartData = props.cart;
-  console.log(cartData.length);
+  var favData = props.fav;
+  console.log(favData.length);
   const MapCart = () => {
     return (
       <>
-        {cartData.map((data) => {
+        {favData.map((data) => {
           return (
             <div className="row justify-content-center" key={data.id}>
               <div className="col-md-3 my-2">
@@ -59,34 +59,34 @@ const Cart = (props) => {
     );
   };
 
-  const CartEmpty = () => {
+  const FavEmpty = () => {
     return (
       <div className="row cart-body">
-        <p className="fw-bolder display-6">Your cart is empty</p>
+        <p className="fw-bolder display-6">No favorite products</p>
       </div>
     );
   };
 
   return (
     <div className="container">
-      {cartData.length === 0 ? <CartEmpty /> : <MapCart />}
+      {favData.length === 0 ? <FavEmpty /> : <MapCart />}
     </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    cart: state.cart,
+    fav: state.fav,
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     delItem: (product) => {
-      dispatch({ type: "DEL_ITEM", payload: product });
+      dispatch({ type: "DEL_ITEM_FAV", payload: product });
     },
     addItem: (product) => {
-      dispatch({ type: "ADD_ITEM", payload: product });
+      dispatch({ type: "ADD_ITEM_FAV", payload: product });
     },
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Fav);

@@ -127,8 +127,8 @@ function Register(props) {
   }
 
   return (
-    <div className="container-fluid-log">
-      <div className="container-log">
+    <div className="container-fluid-log2">
+      <div className="container-log bt-light">
         <h2 className="login-title">Registration</h2>
         <form action="url" className="form-log">
           <div className="form-group-log">
