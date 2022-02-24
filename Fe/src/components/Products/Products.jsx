@@ -36,8 +36,6 @@ const Products = (props) => {
         if (componentMounted) {
           setData(productData);
           setFilter(productData);
-          props.getAllProducts(filter);
-          console.log(props.allProducts);
           // setFilter(props.allProducts);
           setLoading(false);
         }
@@ -47,7 +45,24 @@ const Products = (props) => {
       });
     }
     getData();
-  }, []);
+
+    // configure search function
+    function searchProduct() {
+      const searchText = props.tempText;
+      console.log(searchText);
+
+      const searchArr = props.allProducts;
+      console.log("allproducts", props.allProducts);
+
+      console.log("search in action");
+
+      if (searchText) {
+        setFilter(searchArr);
+        console.log(filter);
+      }
+    }
+    searchProduct();
+  }, [props]);
 
   // get id for Product component
   function getProductId(product) {
@@ -98,11 +113,6 @@ const Products = (props) => {
   // render data if not loading
 
   const ShowProducts = () => {
-    console.log(filter);
-    function getAllProducts() {
-      props.getAllProducts(filter);
-      console.log(props.allProducts);
-    }
     return (
       <>
         <div className="buttons mb-2 justify-content-center">
@@ -177,7 +187,7 @@ const Products = (props) => {
         <div className="row">
           <div className="col-12">
             <h1 className="text-center fw-bolder product-heading">
-              Where The Best Products Are
+              Best Products For Sales
             </h1>
             <hr />
           </div>
@@ -193,6 +203,7 @@ const Products = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     cart: state.cart,
+    tempText: state.tempText,
     allProducts: [],
   };
 };

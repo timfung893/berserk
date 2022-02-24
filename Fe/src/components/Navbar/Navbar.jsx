@@ -11,51 +11,54 @@ const Navbar = (props) => {
   const temp = props.tempText;
   const data = props.allProducts;
 
-  // useEffect(() => {
-  //   function getProducts() {
-  //     productSource.on("value", function (products) {
-  //       var productArr = [];
-  //       products.forEach((product) => {
-  //         const key = product.key;
-  //         const desc = product.val().desc;
-  //         const img = product.val().img;
-  //         const price = product.val().price;
-  //         const type = product.val().type;
+  useEffect(() => {
+    function getProducts() {
+      productSource.on("value", function (products) {
+        var productArr = [];
+        products.forEach((product) => {
+          const key = product.key;
+          const desc = product.val().desc;
+          const img = product.val().img;
+          const price = product.val().price;
+          const type = product.val().type;
 
-  //         productArr.push({
-  //           id: key,
-  //           desc: desc,
-  //           img: img,
-  //           price: price,
-  //           type: type,
-  //         });
-  //       });
+          productArr.push({
+            id: key,
+            desc: desc,
+            img: img,
+            price: price,
+            type: type,
+          });
+        });
 
-  //       props.getAllProducts(productArr);
-  //       console.log(data);
-  //     });
-  //   }
-  //   getProducts();
-  // }, []);
+        props.getAllProducts(productArr);
+        console.log(props.allProducts);
+      });
+    }
+    getProducts();
+  }, []);
 
   //  save search text in store as temptext
   function getTempText(e) {
-    const tempText = e.target.value;
-    console.log(tempText);
-    props.getTempText(tempText);
+    const temp = e.target.value;
+    props.getTempText(temp);
+    console.log(temp);
   }
 
   // search product with temptext
-  function performSearch(e) {
-    e.preventDefault();
-    // data.map((x) => x.desc === temp?  )
+  function performSearch(e, tempText) {
+    const filteredSearch = [];
+    // e.preventDefault();
 
-    if (data.val().indexOf(temp) === -1) {
-      console.log("error");
-    } else {
-      const filteredSearch = data.filter((x) => x.desc === temp);
-      props.getAllProducts(filteredSearch);
-    }
+    data.forEach((x) => {
+      if (x.desc.indexOf(temp) !== -1) {
+        filteredSearch.push(x);
+        console.log("ok");
+      } else {
+        console.log("search error");
+      }
+    });
+    props.getAllProducts(filteredSearch);
   }
 
   return (
@@ -127,7 +130,7 @@ const Navbar = (props) => {
               className="btn btn-outline-success"
               type="reset"
               to={"/products"}
-              onClick={(e) => performSearch(e)}
+              onClick={(e) => performSearch(e, props.tempText)}
             >
               Search
             </NavLink>
