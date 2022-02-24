@@ -1,18 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import { productSource } from "../firebaseConnect";
+import Products from "../Products/Products";
 import Nav from "./Navbar.css";
 
 const Navbar = (props) => {
   const cart = props.cart.length;
   const fav = props.fav.length;
+  const temp = props.tempText;
+  const data = props.allProducts;
 
-  function searchText(e) {
+  // useEffect(() => {
+  //   function getProducts() {
+  //     productSource.on("value", function (products) {
+  //       var productArr = [];
+  //       products.forEach((product) => {
+  //         const key = product.key;
+  //         const desc = product.val().desc;
+  //         const img = product.val().img;
+  //         const price = product.val().price;
+  //         const type = product.val().type;
+
+  //         productArr.push({
+  //           id: key,
+  //           desc: desc,
+  //           img: img,
+  //           price: price,
+  //           type: type,
+  //         });
+  //       });
+
+  //       props.getAllProducts(productArr);
+  //       console.log(data);
+  //     });
+  //   }
+  //   getProducts();
+  // }, []);
+
+  //  save search text in store as temptext
+  function getTempText(e) {
     const tempText = e.target.value;
     console.log(tempText);
+    props.getTempText(tempText);
   }
 
-  function performSearch(e) {}
+  // search product with temptext
+  function performSearch(e) {
+    e.preventDefault();
+    // data.map((x) => x.desc === temp?  )
+
+    if (data.val().indexOf(temp) === -1) {
+      console.log("error");
+    } else {
+      const filteredSearch = data.filter((x) => x.desc === temp);
+      props.getAllProducts(filteredSearch);
+    }
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -57,38 +102,6 @@ const Navbar = (props) => {
                 Your Favorites({fav})
               </NavLink>
             </li>
-            {/* <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                to="/favorites"
-              >
-                Your Favorites
-              </NavLink> */}
-            {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <NavLink className="dropdown-item" to="/">
-                    Action
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" to="/">
-                    Another action
-                  </NavLink>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" to="/">
-                    Something else here
-                  </NavLink>
-                </li>
-              </ul> */}
-            {/* </li> */}
           </ul>
           <div className="login">
             <NavLink to="/login" className="btn btn-outline-dark ms-2">
@@ -108,15 +121,16 @@ const Navbar = (props) => {
               placeholder="type a character name"
               aria-label="Search"
               name="search"
-              onChange={(e) => searchText(e)}
+              onChange={(e) => getTempText(e)}
             />
-            <button
+            <NavLink
               className="btn btn-outline-success"
-              type="submit"
+              type="reset"
+              to={"/products"}
               onClick={(e) => performSearch(e)}
             >
               Search
-            </button>
+            </NavLink>
           </form>
         </div>
       </div>
@@ -129,7 +143,18 @@ const mapStateToProps = (state, ownProps) => {
     cart: state.cart,
     fav: state.fav,
     tempText: "",
+    allProducts: [],
   };
 };
 
-export default connect(mapStateToProps, null)(Navbar);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    getTempText: (tempText) => {
+      dispatch({ type: "SEARCH_TEXT", tempText });
+    },
+    getAllProducts: (data) => {
+      dispatch({ type: "ALL_PRODUCTS", data });
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
