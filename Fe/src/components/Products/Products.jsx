@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import Skeleton from "react-loading-skeleton";
@@ -9,6 +10,9 @@ const Products = (props) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
+  const searchProducts = useSelector((state) => state.allProducts);
+  const searchText = useSelector((state) => state.tempText);
+  console.log(searchProducts);
 
   let componentMounted = true;
 
@@ -36,7 +40,7 @@ const Products = (props) => {
         if (componentMounted) {
           setData(productData);
           setFilter(productData);
-          // setFilter(props.allProducts);
+          props.getAllProducts(productData);
           setLoading(false);
         }
         return () => {
@@ -48,21 +52,24 @@ const Products = (props) => {
 
     // configure search function
     function searchProduct() {
-      const searchText = props.tempText;
       console.log(searchText);
-
-      const searchArr = props.allProducts;
-      console.log("allproducts", props.allProducts);
 
       console.log("search in action");
 
       if (searchText) {
-        setFilter(searchArr);
-        console.log(filter);
+        const filtered = [];
+
+        searchProducts.forEach((item) => {
+          if (item.desc.indexOf(searchText) !== -1) {
+            filtered.push(item);
+          }
+        });
+
+        setFilter(filtered);
       }
     }
     searchProduct();
-  }, [props]);
+  }, [props.tempText]);
 
   // get id for Product component
   function getProductId(product) {
