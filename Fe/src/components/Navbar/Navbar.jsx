@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
@@ -9,53 +10,24 @@ const Navbar = (props) => {
   const cart = props.cart.length;
   const fav = props.fav.length;
   const temp = props.tempText;
-  const data = props.allProducts;
-
-  // useEffect(() => {
-  //   function getProducts() {
-  //     productSource.on("value", function (products) {
-  //       var productArr = [];
-  //       products.forEach((product) => {
-  //         const key = product.key;
-  //         const desc = product.val().desc;
-  //         const img = product.val().img;
-  //         const price = product.val().price;
-  //         const type = product.val().type;
-
-  //         productArr.push({
-  //           id: key,
-  //           desc: desc,
-  //           img: img,
-  //           price: price,
-  //           type: type,
-  //         });
-  //       });
-
-  //       props.getAllProducts(productArr);
-  //       console.log(data);
-  //     });
-  //   }
-  //   getProducts();
-  // }, []);
+  let searchProducts = "";
+  let keys = "";
 
   //  save search text in store as temptext
-  function getTempText(e) {
-    const tempText = e.target.value;
-    console.log(tempText);
-    props.getTempText(tempText);
+
+  function isChanged(e) {
+    keys = e.target.value;
   }
 
   // search product with temptext
-  function performSearch(e) {
-    e.preventDefault();
-    // data.map((x) => x.desc === temp?  )
+  function performSearch(e, temp) {
+    searchProducts = keys;
+    props.getTempText(searchProducts);
+    console.log("send searchtext", temp);
 
-    if (data.val().indexOf(temp) === -1) {
-      console.log("error");
-    } else {
-      const filteredSearch = data.filter((x) => x.desc === temp);
-      props.getAllProducts(filteredSearch);
-    }
+    // searchProducts.filter((x) => x.desc.indexOf(props.tempText) !== -1);
+
+    // console.log("filtered is", searchProducts);
   }
 
   return (
@@ -118,16 +90,17 @@ const Navbar = (props) => {
             <input
               className="form-control me-2"
               type="text"
-              placeholder="type a character name"
+              placeholder="type a character name with the 1st letter capitalized"
               aria-label="Search"
               name="search"
-              onChange={(e) => getTempText(e)}
+              onChange={(e) => isChanged(e)}
+              title="type a character name with the 1st letter capitalized"
             />
             <NavLink
               className="btn btn-outline-success"
               type="reset"
               to={"/products"}
-              onClick={(e) => performSearch(e)}
+              onClick={(e) => performSearch(e, temp)}
             >
               Search
             </NavLink>

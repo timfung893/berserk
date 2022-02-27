@@ -11,9 +11,10 @@
 
 .product-heading {
   font-family: "destroyregular", sans-serif;
-  color: rgb(177, 168, 168);
+  color: rgb(153, 136, 136);
   font-size: 30px;
 }
+
 @media screen and (max-width: 1023px) {
   .products {
     flex-flow: row wrap;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import Skeleton from "react-loading-skeleton";
@@ -9,6 +10,9 @@ const Products = (props) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
+  const searchProducts = useSelector((state) => state.allProducts);
+  const searchText = useSelector((state) => state.tempText);
+  console.log(searchProducts);
 
   let componentMounted = true;
 
@@ -36,9 +40,7 @@ const Products = (props) => {
         if (componentMounted) {
           setData(productData);
           setFilter(productData);
-          props.getAllProducts(filter);
-          console.log(props.allProducts);
-          // setFilter(props.allProducts);
+          props.getAllProducts(productData);
           setLoading(false);
         }
         return () => {
@@ -47,7 +49,27 @@ const Products = (props) => {
       });
     }
     getData();
-  }, []);
+
+    // configure search function
+    function searchProduct() {
+      console.log(searchText);
+
+      console.log("search in action");
+
+      if (searchText) {
+        const filtered = [];
+
+        searchProducts.forEach((item) => {
+          if (item.desc.indexOf(searchText) !== -1) {
+            filtered.push(item);
+          }
+        });
+
+        setFilter(filtered);
+      }
+    }
+    searchProduct();
+  }, [props.tempText]);
 
   // get id for Product component
   function getProductId(product) {
@@ -98,11 +120,6 @@ const Products = (props) => {
   // render data if not loading
 
   const ShowProducts = () => {
-    console.log(filter);
-    function getAllProducts() {
-      props.getAllProducts(filter);
-      console.log(props.allProducts);
-    }
     return (
       <>
         <div className="buttons mb-2 justify-content-center">
@@ -177,7 +194,7 @@ const Products = (props) => {
         <div className="row">
           <div className="col-12">
             <h1 className="text-center fw-bolder product-heading">
-              Where The Best Products Are
+              Best Products For Sales
             </h1>
             <hr />
           </div>
@@ -193,6 +210,7 @@ const Products = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     cart: state.cart,
+    tempText: state.tempText,
     allProducts: [],
   };
 };
