@@ -10,24 +10,22 @@ const Navbar = (props) => {
   const cart = props.cart.length;
   const fav = props.fav.length;
   const temp = props.tempText;
-  let searchProducts = "";
-  let keys = "";
+  let keyWords = "";
 
-  //  save search text in store as temptext
-
+  //  get search text
   function isChanged(e) {
-    keys = e.target.value;
+    keyWords = e.target.value;
   }
 
   // search product with temptext
   function performSearch(e, temp) {
-    searchProducts = keys;
-    props.getTempText(searchProducts);
+    props.getTempText(keyWords);
+    const url = window.location.pathname;
+    console.log(url);
+    if (url === "/products") {
+      e.preventDefault();
+    }
     console.log("send searchtext", temp);
-
-    // searchProducts.filter((x) => x.desc.indexOf(props.tempText) !== -1);
-
-    // console.log("filtered is", searchProducts);
   }
 
   return (
@@ -94,11 +92,11 @@ const Navbar = (props) => {
               aria-label="Search"
               name="search"
               onChange={(e) => isChanged(e)}
-              title="type a character name with the 1st letter capitalized"
+              title="type a character name - Ex: 'Guts'"
             />
             <NavLink
               className="btn btn-outline-success"
-              type="reset"
+              type="submit"
               to={"/products"}
               onClick={(e) => performSearch(e, temp)}
             >
