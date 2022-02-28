@@ -37,10 +37,23 @@ const Products = (props) => {
             type: type,
           });
         });
+
         if (componentMounted) {
-          setData(productData);
-          setFilter(productData);
+          // configure search function
           props.getAllProducts(productData);
+          console.log(searchProducts);
+          if (searchText) {
+            const filtered = [];
+            searchProducts.forEach((item) => {
+              if (item.desc.indexOf(searchText) !== -1) {
+                filtered.push(item);
+              }
+            });
+            setFilter(filtered);
+          } else {
+            setFilter(productData);
+          }
+          setData(productData);
           setLoading(false);
         }
         return () => {
@@ -49,26 +62,6 @@ const Products = (props) => {
       });
     }
     getData();
-
-    // configure search function
-    function searchProduct() {
-      console.log(searchText);
-
-      console.log("search in action");
-
-      if (searchText) {
-        const filtered = [];
-
-        searchProducts.forEach((item) => {
-          if (item.desc.indexOf(searchText) !== -1) {
-            filtered.push(item);
-          }
-        });
-
-        setFilter(filtered);
-      }
-    }
-    searchProduct();
   }, [props.tempText]);
 
   // get id for Product component
