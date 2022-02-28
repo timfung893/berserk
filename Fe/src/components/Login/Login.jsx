@@ -124,6 +124,7 @@ function Login(props) {
       //   do nothing
     } else {
       //  call api...
+      alert("Your information is received");
     }
   }
 
@@ -136,7 +137,7 @@ function Login(props) {
             <label htmlFor="username">Username</label>
             <input
               type="text"
-              placeholder="insert your username"
+              placeholder="type your username"
               id="username"
               name="username"
             />
@@ -146,7 +147,7 @@ function Login(props) {
             <label htmlFor="email">Email</label>
             <input
               type="text"
-              placeholder="insert your email"
+              placeholder="type your email"
               id="email"
               name="email"
             />
@@ -156,7 +157,7 @@ function Login(props) {
             <label htmlFor="password">Password</label>
             <input
               type="text"
-              placeholder="insert your password"
+              placeholder="type your password"
               id="password"
               name="password"
             />

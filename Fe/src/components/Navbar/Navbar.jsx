@@ -19,13 +19,14 @@ const Navbar = (props) => {
 
   // search product with temptext
   function performSearch(e, temp) {
-    props.getTempText(keyWords);
+    // no re-render for products page
     const url = window.location.pathname;
-    console.log(url);
+
     if (url === "/products") {
       e.preventDefault();
     }
-    console.log("send searchtext", temp);
+    // save keyword
+    keyWords ? props.getTempText(keyWords) : console.log("no keyword");
   }
 
   return (
@@ -88,11 +89,11 @@ const Navbar = (props) => {
             <input
               className="form-control me-2"
               type="text"
-              placeholder="type a character name with the 1st letter capitalized"
+              placeholder="type a name - Ex: 'Guts'"
               aria-label="Search"
               name="search"
               onChange={(e) => isChanged(e)}
-              title="type a character name - Ex: 'Guts'"
+              title="type a character name with the 1st letter capitalized"
             />
             <NavLink
               className="btn btn-outline-success"

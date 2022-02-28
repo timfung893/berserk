@@ -1,3 +1,10 @@
 .cart-body {
-  height: 75vh;
+  height: 85vh;
+}
+
+.cart-product {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }

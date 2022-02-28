@@ -32,7 +32,7 @@ const Cart = (props) => {
                   />
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 cart-product">
                 <h4 className="card-title">{data.desc}</h4>
                 <p className="card-text">
                   {data.qty} x ${data.price} = ${data.qty * data.price}
@@ -45,10 +45,15 @@ const Cart = (props) => {
                     <i className="fa fa-plus"></i>
                   </button>
                   <button
-                    className="btn btn-outline-dark fw-bolder mb-2"
+                    className="btn btn-outline-dark fw-bolder mx-1 mb-2"
                     onClick={(e) => delItem(e, data)}
                   >
                     <i className="fa fa-minus"></i>
+                  </button>
+                </div>
+                <div className="buttons">
+                  <button className="btn btn-outline-info fw-bolder">
+                    Checkout
                   </button>
                 </div>
               </div>
@@ -68,7 +73,7 @@ const Cart = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container cart-body">
       {cartData.length === 0 ? <CartEmpty /> : <MapCart />}
     </div>
   );

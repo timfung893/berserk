@@ -32,7 +32,7 @@ const Fav = (props) => {
                   />
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4 cart-product-fav">
                 <h4 className="card-title">{data.desc}</h4>
                 <p className="card-text">
                   {data.qty} x ${data.price} = ${data.qty * data.price}
@@ -68,7 +68,7 @@ const Fav = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container cart-body">
       {favData.length === 0 ? <FavEmpty /> : <MapCart />}
     </div>
   );

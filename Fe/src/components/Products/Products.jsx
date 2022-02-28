@@ -39,7 +39,7 @@ const Products = (props) => {
         });
 
         if (componentMounted) {
-          // configure search function
+          // set filtered data for search function
           props.getAllProducts(productData);
           console.log(searchProducts);
           if (searchText) {
@@ -50,9 +50,12 @@ const Products = (props) => {
               }
             });
             setFilter(filtered);
+            console.log(filter);
           } else {
+            // normal data for render
             setFilter(productData);
           }
+
           setData(productData);
           setLoading(false);
         }

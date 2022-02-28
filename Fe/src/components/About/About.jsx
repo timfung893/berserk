@@ -30,6 +30,7 @@ const About = () => {
               (once-friend), Griffith, the charismatic leader of the mercenary
               band, Band of the Hawk.
               <br></br>
+              <br></br>
               Miura advances the story in “arcs”, short serialised fragments
               that usually span three to five manga volumes. Each arc elegantly
               weaves this dark tale of Guts upon a blood-soaked tapestry, Miura
@@ -58,6 +59,7 @@ const About = () => {
             volumes are drawn digitally, Miura never strays far from this
             savagery that has become so integral to his series, one might even
             call it, berserk!
+            <br></br>
             <br></br>
             There have been several attempts at adapting Berserk into an anime,
             but they are mostly middling. The earliest adapted in 1997 by OLM,
@@ -91,15 +93,16 @@ const About = () => {
             brutal and at times, rough to read, but for those with darker
             tastes, there is nothing greater than relishing in Miura’s dark
             fantasy. With over thirty-nine volumes released, there is much to
-            read! But do so slowly as the release date for chapters remains
-            erratic.
+            read! But do so slowly as the story just gets better and better when
+            the end draws near.
+            <br></br>
             <br></br>
             Allow the strand of causality to reel you in and follow Guts on a
             journey to defy destiny and to remain human in an inhuman world.
             <br></br>
             <span className="about-desc-span">(by grimdarkmagazine)</span>
-            <h2 className="mt-4 mb-0">READ BERSERK BY KENTARO MIURA</h2>
           </p>
+          <h4 className="mt-4 mb-0 readIt">READ BERSERK BY KENTARO MIURA</h4>
         </div>
       </div>
     </div>

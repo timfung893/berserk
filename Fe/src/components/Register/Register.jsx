@@ -123,6 +123,7 @@ function Register(props) {
       //   do nothing
     } else {
       //  call api...
+      alert("Your information is received");
     }
   }
 

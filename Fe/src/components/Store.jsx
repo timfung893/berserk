@@ -93,6 +93,7 @@ const allReducer = (state = InitialState, action) => {
 
     case "ALL_PRODUCTS":
       return { ...state, allProducts: action.data };
+
     default:
       return state;
   }
