@@ -77,6 +77,7 @@ const Fav = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     fav: state.fav,
+    tempText: state.tempText,
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {

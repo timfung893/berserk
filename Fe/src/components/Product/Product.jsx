@@ -32,13 +32,13 @@ const Product = React.memo((props) => {
           const key = product.key;
           const desc = product.val().desc;
           const { img } = product.val();
-          const img1 = product.val().img1;
-          const img2 = product.val().img2;
-          const img3 = product.val().img3;
-          const price = product.val().price;
-          const type = product.val().type;
-          const desc2 = product.val().desc2;
-          const desc3 = product.val().desc3;
+          const { img1 } = product.val();
+          const { img2 } = product.val();
+          const { img3 } = product.val();
+          const { price } = product.val();
+          const { type } = product.val();
+          const { desc2 } = product.val();
+          const { desc3 } = product.val();
 
           productData.push({
             id: key,

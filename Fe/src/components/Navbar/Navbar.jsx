@@ -22,9 +22,9 @@ const Navbar = (props) => {
     // no re-render for products page
     const url = window.location.pathname;
 
-    if (url === "/products") {
-      e.preventDefault();
-    }
+    // if (url === "/products") {
+    //   e.preventDefault();
+    // }
     // save keyword
     keyWords ? props.getTempText(keyWords) : console.log("no keyword");
   }

@@ -10,9 +10,8 @@ const Products = (props) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
-  const searchProducts = useSelector((state) => state.allProducts);
+  let searchProducts = useSelector((state) => state.allProducts);
   const searchText = useSelector((state) => state.tempText);
-  console.log(searchProducts);
 
   let componentMounted = true;
 
@@ -39,40 +38,44 @@ const Products = (props) => {
         });
 
         if (componentMounted) {
-          // set filtered data for search function
-          props.getAllProducts(productData);
-          console.log(searchProducts);
+          setData(productData);
+          setLoading(false);
+
           if (searchText) {
+            // set data for search function
             const filtered = [];
+            searchProducts = productData;
+            console.log("sp =", searchProducts);
+
             searchProducts.forEach((item) => {
+              // filter data if keyword is correct
               if (item.desc.indexOf(searchText) !== -1) {
                 filtered.push(item);
+                console.log(filtered);
               }
             });
+            // filtered data for search function
             setFilter(filtered);
-            console.log(filter);
           } else {
             // normal data for render
             setFilter(productData);
           }
-
-          setData(productData);
-          setLoading(false);
         }
+        // return false before unmount
         return () => {
           componentMounted = false;
         };
       });
     }
     getData();
-  }, [props.tempText]);
+  }, [searchText]);
 
   // get id for Product component
   function getProductId(product) {
     props.getProductId(product);
   }
 
-  // get product
+  // get products
   function getProduct(product) {
     props.getProduct(product);
   }
