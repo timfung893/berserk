@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { productSource } from "../firebaseConnect";
-import Products from "../Products/Products";
-import Nav from "./Navbar.css";
+
+import "./Navbar.css";
 
 const Navbar = (props) => {
   const cart = props.cart.length;
@@ -20,12 +18,7 @@ const Navbar = (props) => {
   // search product with temptext
   function performSearch(e, temp) {
     // no re-render for products page
-    const url = window.location.pathname;
 
-    // if (url === "/products") {
-    //   e.preventDefault();
-    // }
-    // save keyword
     keyWords ? props.getTempText(keyWords) : console.log("no keyword");
   }
 

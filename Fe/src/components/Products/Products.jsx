@@ -42,25 +42,19 @@ const Products = (props) => {
           setLoading(false);
 
           if (searchText) {
-            // set data for search function
-            const filtered = [];
+            let filtered = [];
             searchProducts = productData;
-            console.log("sp =", searchProducts);
+            filtered = searchProducts.filter(
+              (item) => item.desc.indexOf(searchText) !== -1
+            );
 
-            searchProducts.forEach((item) => {
-              // filter data if keyword is correct
-              if (item.desc.indexOf(searchText) !== -1) {
-                filtered.push(item);
-                console.log(filtered);
-              }
-            });
-            // filtered data for search function
             setFilter(filtered);
+            console.log("filtered =", searchProducts);
           } else {
-            // normal data for render
             setFilter(productData);
           }
         }
+
         // return false before unmount
         return () => {
           componentMounted = false;
@@ -210,7 +204,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     cart: state.cart,
     tempText: state.tempText,
-    allProducts: [],
+    allProducts: state.allProducts,
   };
 };
 
