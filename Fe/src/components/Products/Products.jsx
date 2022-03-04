@@ -10,10 +10,12 @@ const Products = (props) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
-  let searchProducts = useSelector((state) => state.allProducts);
   const searchText = useSelector((state) => state.tempText);
+  // const searchProducts = props.allProducts;
+  let searchProducts = useSelector((state) => state.allProducts);
 
   let componentMounted = true;
+  console.log("rendered");
 
   useEffect(() => {
     function getData() {
@@ -40,42 +42,39 @@ const Products = (props) => {
         if (componentMounted) {
           setData(productData);
           setLoading(false);
+          // searchProducts = productData;
 
           if (searchText) {
-            // set data for search function
             const filtered = [];
             searchProducts = productData;
-            console.log("sp =", searchProducts);
+            console.log("allproducts =", searchProducts);
 
             searchProducts.forEach((item) => {
-              // filter data if keyword is correct
               if (item.desc.indexOf(searchText) !== -1) {
                 filtered.push(item);
-                console.log(filtered);
               }
             });
-            // filtered data for search function
             setFilter(filtered);
+            console.log("search filtered = ", filter);
           } else {
-            // normal data for render
             setFilter(productData);
           }
         }
-        // return false before unmount
+        // before unmount, do this
         return () => {
           componentMounted = false;
         };
       });
     }
     getData();
-  }, [searchText]);
+  }, [props.tempText]);
 
   // get id for Product component
   function getProductId(product) {
     props.getProductId(product);
   }
 
-  // get products
+  // get product
   function getProduct(product) {
     props.getProduct(product);
   }
@@ -110,7 +109,8 @@ const Products = (props) => {
 
   function shortTitle(title) {
     if (window.innerWidth < 1024) {
-      title.substring(0, 18);
+      const shortened = title.substring(0, 27) + "...";
+      return shortened;
     } else {
       return title;
     }
@@ -210,7 +210,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     cart: state.cart,
     tempText: state.tempText,
-    allProducts: [],
+    allProducts: state.allProducts,
   };
 };
 

@@ -81,9 +81,9 @@ const About = () => {
             allowFullScreen="allowfullscreen"
           ></iframe> */}
           <ReactPlayer
-            url="https://youtu.be/IXL5r3n862U"
+            url="http://www.youtube.com/watch?v=IXL5r3n862U"
             className="about-video mx-auto"
-            controls="true"
+            controls={true}
           />
           <p className="about-desc mt-4 mb-0">
             For those wanting to lose themselves into Berserk, I fully recommend

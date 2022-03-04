@@ -72,7 +72,7 @@ const allReducer = (state = InitialState, action) => {
     //  del from fav
     case "DEL_ITEM_FAV":
       const favProductExist1 = state.fav.find((x) => x.id === product.id);
-      // if qty = 1, filter.fav
+      // if qty = 1, filter fav
       if (favProductExist1.qty === 1) {
         return {
           ...state,
