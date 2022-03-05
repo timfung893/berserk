@@ -6,6 +6,9 @@ const InitialState = {
   fav: [],
   tempText: "",
   allProducts: [],
+  showNoti: false,
+  notiContent: "",
+  notiType: "",
 };
 
 const allReducer = (state = InitialState, action) => {
@@ -91,6 +94,17 @@ const allReducer = (state = InitialState, action) => {
 
     case "ALL_PRODUCTS":
       return { ...state, allProducts: action.data };
+
+    case "NOTI_ON":
+      return {
+        ...state,
+        showNoti: true,
+        notiContent: action.notiContent,
+        notiType: action.notiType,
+      };
+
+    case "NOTI_OFF":
+      return { ...state, showNoti: false };
 
     default:
       return state;
