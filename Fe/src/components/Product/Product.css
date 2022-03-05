@@ -17,8 +17,9 @@
 }
 
 .heart {
-  font-size: 30px;
+  font-size: 25px !important;
 }
+
 .heart:hover {
   color: red;
   transition: all 0.2s ease;

@@ -14,24 +14,34 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 25px;
   text-transform: uppercase;
-  /* font-family: "destroyregular", sans-serif !important; */
+}
+
+.about-img-container {
+  position: relative;
 }
 
 .about-img {
-  border-radius: 0px !important;
-  background-position: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .about-desc {
   text-align: left;
 }
+
 .about-desc h2 {
   font-family: "destroyregular", sans-serif !important;
   font-size: 25px;
 }
+
 .about-desc-span {
   text-align: right !important;
 }
+
 .about-desc2-container {
   position: relative;
 }

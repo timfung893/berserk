@@ -42,9 +42,8 @@ const Products = (props) => {
           setLoading(false);
 
           if (searchText) {
-            let filtered = [];
             searchProducts = productData;
-            filtered = searchProducts.filter(
+            const filtered = searchProducts.filter(
               (item) => item.desc.indexOf(searchText) !== -1
             );
 
@@ -104,7 +103,8 @@ const Products = (props) => {
 
   function shortTitle(title) {
     if (window.innerWidth < 1024) {
-      title.substring(0, 18);
+      const shortened = title.substring(0, 27);
+      return shortened;
     } else {
       return title;
     }

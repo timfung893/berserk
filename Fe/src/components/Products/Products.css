@@ -15,6 +15,13 @@
   font-size: 30px;
 }
 
+.cart-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 1023px) {
   .products {
     flex-flow: row wrap;

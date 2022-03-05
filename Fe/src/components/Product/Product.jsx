@@ -208,11 +208,12 @@ const Product = React.memo((props) => {
                       Add to cart
                     </button>
                     <NavLink
-                      className="btn me-2 mb-2"
+                      className="btn me-2 mb-2 heart"
                       to={`/product/${data.id}`}
                       onClick={() => getProductFav(data)}
+                      title="add to favorites"
                     >
-                      <i className="fa fa-heart heart"></i>
+                      <i className="fa fa-heart heart icon-3x"></i>
                     </NavLink>
                   </div>
                 </div>

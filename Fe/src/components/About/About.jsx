@@ -72,14 +72,6 @@ const About = () => {
             relation to other anime of the late 90’s, but Miura’s story remains
             supreme, and that is what is most important after all.
           </p>
-          {/* <iframe
-            title="trailer"
-            width="550"
-            height="200"
-            src="https://www.youtube.com/watch?v=IXL5r3n862U&ab_channel=AnimeClips"
-            frameborder="0"
-            allowFullScreen="allowfullscreen"
-          ></iframe> */}
           <ReactPlayer
             url="https://youtu.be/IXL5r3n862U"
             className="about-video mx-auto"

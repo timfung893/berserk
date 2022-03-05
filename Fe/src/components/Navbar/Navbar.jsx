@@ -18,9 +18,19 @@ const Navbar = (props) => {
   // search product with temptext
   function performSearch(e, temp) {
     // no re-render for products page
-
     keyWords ? props.getTempText(keyWords) : console.log("no keyword");
   }
+
+  // set navbar toggler for screen width < 1200
+  // function navBar() {
+  //   if (window.innerWidth < 1200) {
+  //     const navToggle = document.querySelector(".navbar-toggler");
+  //     const navShow = document.querySelector(".collapse .show");
+  //     navToggle.style.display = "block";
+  //     navShow.classList.add("show");
+  //   }
+  // }
+  // navBar();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,7 +56,7 @@ const Navbar = (props) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto bg-light justify-content-between">
+          <ul className="navbar-nav mb-2 mb-lg-0 bg-light justify-content-between">
             <li className="nav-item fw-bolder">
               <NavLink
                 className="nav-link mx-2"
@@ -63,7 +73,7 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item fw-bolder mx-2">
               <NavLink className="nav-link" to="/favorites">
-                Your Favorites({fav})
+                Favorites({fav})
               </NavLink>
             </li>
           </ul>
