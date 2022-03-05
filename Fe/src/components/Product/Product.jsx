@@ -109,12 +109,12 @@ const Product = React.memo((props) => {
   // get product
   function getProduct(product, title) {
     props.getProduct(product);
-    props.initNoti(`${title}` + " has been added ", "info");
+    props.initNoti(title + " is added  to cart", "info");
   }
   // add to favs
   function getProductFav(product, title) {
     props.getProductFav(product);
-    props.initNoti(`${title}` + " has been added ", "info");
+    props.initNoti(title + " is added to favorites ", "info");
   }
 
   // show noti

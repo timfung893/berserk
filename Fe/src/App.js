@@ -14,11 +14,11 @@ import Noti from "./components/Noti/Noti";
 import { connect } from "react-redux";
 
 function App(props) {
-  function showNoti() {
+  const showNoti = () => {
     if (props.showNoti === true) {
       return <Noti />;
     }
-  }
+  };
 
   return (
     <div className="App">
