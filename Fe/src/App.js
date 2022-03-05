@@ -10,10 +10,19 @@ import About from "./components/About/About";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Fav from "./components/Favorites/Fav";
+import Noti from "./components/Noti/Noti";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
+  const showNoti = () => {
+    if (props.showNoti === true) {
+      return <Noti />;
+    }
+  };
+
   return (
     <div className="App">
+      {showNoti()}
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
@@ -30,4 +39,9 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    showNoti: state.showNoti,
+  };
+};
+export default connect(mapStateToProps, null)(App);

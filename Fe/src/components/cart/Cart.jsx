@@ -52,7 +52,10 @@ const Cart = (props) => {
                   </button>
                 </div>
                 <div className="buttons">
-                  <button className="btn btn-outline-info fw-bolder">
+                  <button
+                    className="btn btn-outline-info fw-bolder"
+                    onClick={() => alert("thank you for buying!")}
+                  >
                     Checkout
                   </button>
                 </div>

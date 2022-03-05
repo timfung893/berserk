@@ -62,7 +62,7 @@ const Fav = (props) => {
   const FavEmpty = () => {
     return (
       <div className="row cart-body">
-        <p className="fw-bolder display-6">No favorite products</p>
+        <p className="fw-bolder display-6 alert-fav">No favorite products</p>
       </div>
     );
   };

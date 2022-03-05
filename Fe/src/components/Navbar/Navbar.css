@@ -3,25 +3,6 @@
   position: relative;
 }
 
-/* .nav-link:hover {
-  padding: 20px;
-  background-color: red;
-} */
-
-/* .nav-link:after {
-  position: absolute;
-  left: 0;
-  width: 0%;
-  padding: 20px;
-  border-bottom: solid 2px red;
-}
-
-.nav-link:hover:after {
-  width: 100%;
-  padding: 20px;
-  border-bottom: solid 2px red;
-  transition: 0.2s ease; */
-
 .nav-link:hover {
   border-radius: 20px 0 20px 0;
   background: red;
@@ -29,6 +10,15 @@
   -webkit-transition: 0.25s ease-in-out;
 }
 
+.navbar-expand-lg .navbar-collapse {
+  justify-content: center;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .login a {
+    width: 29%;
+  }
+}
 @media only screen and (max-width: 991px) {
   .login {
     margin-bottom: 20px;

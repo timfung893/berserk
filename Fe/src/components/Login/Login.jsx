@@ -41,23 +41,6 @@ function Login(props) {
     return isEmpty;
   }
 
-  // check email
-  function checkEmailErr(input) {
-    const regexEmail =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    input.value = input.value.trim();
-    let isEmailError = !regexEmail.test(input.value);
-
-    if (regexEmail.test(input.value)) {
-      showSuccess(input);
-    } else {
-      showError(input, "Email is invalid");
-    }
-
-    return isEmailError;
-  }
-
   // check length
 
   function checkLengthErr(input, min, max) {
@@ -96,16 +79,11 @@ function Login(props) {
 
     const username = document.querySelector("#username");
     console.log(username);
-    const email = document.querySelector("#email");
-    console.log(email);
     const password = document.querySelector("#password");
     const confirmPassword = document.querySelector("#confirm-password");
 
     //   check empty
-    let isEmpty = checkEmptyErr([username, password, email, confirmPassword]);
-
-    //   check email error
-    let isEmailError = checkEmailErr(email);
+    let isEmpty = checkEmptyErr([username, password, confirmPassword]);
 
     //   check length
     let isUsernameLengthErr = checkLengthErr(username, 8, 16);
@@ -116,7 +94,6 @@ function Login(props) {
 
     if (
       isEmpty ||
-      isEmailError ||
       isUsernameLengthErr ||
       isPasswordLengthErr ||
       isPasswordErr
@@ -143,16 +120,7 @@ function Login(props) {
             />
             <small />
           </div>
-          <div className="form-group-log">
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              placeholder="type your email"
-              id="email"
-              name="email"
-            />
-            <small />
-          </div>
+
           <div className="form-group-log">
             <label htmlFor="password">Password</label>
             <input
@@ -163,16 +131,7 @@ function Login(props) {
             />
             <small />
           </div>
-          <div className="form-group-log">
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              type="text"
-              placeholder="retype your password"
-              id="confirm-password"
-              name="confirm-password"
-            />
-            <small />
-          </div>
+
           <button
             className="btn-submit"
             type="submit"

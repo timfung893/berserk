@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./Product.css";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
+import Noti from "../Noti/Noti";
 
 // map data
 const Product = React.memo((props) => {
@@ -106,13 +107,23 @@ const Product = React.memo((props) => {
   }
 
   // get product
-  function getProduct(product) {
+  function getProduct(product, title) {
     props.getProduct(product);
+    props.initNoti(title + " is added  to cart", "info");
   }
   // add to favs
-  function getProductFav(product) {
+  function getProductFav(product, title) {
     props.getProductFav(product);
+    props.initNoti(title + " is added to favorites ", "info");
   }
+
+  // show noti
+  // function showNoti() {
+  //   if (props.showNoti === true) {
+  //     return <Noti />;
+  //   }
+  // }
+  // showNoti();
 
   // related products
   // start with id = 0
@@ -203,16 +214,21 @@ const Product = React.memo((props) => {
                     <button
                       className="btn btn-outline-success fw-bolder me-2 mb-2"
                       to=""
-                      onClick={() => getProduct(data)}
+                      onClick={() =>
+                        getProduct(data, data.desc.substring(0, 10) + "...")
+                      }
                     >
                       Add to cart
                     </button>
                     <NavLink
-                      className="btn me-2 mb-2"
+                      className="btn me-2 mb-2 heart"
                       to={`/product/${data.id}`}
-                      onClick={() => getProductFav(data)}
+                      onClick={() =>
+                        getProductFav(data, data.desc.substring(0, 10) + "...")
+                      }
+                      title="add to favorites"
                     >
-                      <i className="fa fa-heart heart"></i>
+                      <i className="fa fa-heart heart icon-3x"></i>
                     </NavLink>
                   </div>
                 </div>
@@ -242,6 +258,7 @@ const mapStateToProps = (state, ownProps) => {
     productItem: state.productItem,
     cart: state.cart,
     fav: state.fav,
+    showNoti: state.showNoti,
   };
 };
 
@@ -255,6 +272,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     getProductFav: (getProductFav) => {
       dispatch({ type: "ADD_ITEM_FAV", payload: getProductFav });
+    },
+    initNoti: (notiContent, notiType) => {
+      dispatch({ type: "NOTI_ON", notiContent, notiType });
     },
   };
 };

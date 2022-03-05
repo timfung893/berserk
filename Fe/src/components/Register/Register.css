@@ -38,12 +38,15 @@
   border-radius: 5px;
   width: 100%;
 }
+
 .form-group-log.error input {
   border-bottom: 2px solid red;
 }
+
 .form-group-log.error small {
   color: red;
 }
+
 .form-group-log:after {
   content: "";
   position: absolute;
@@ -54,6 +57,7 @@
   top: 84px;
   left: 0;
 }
+
 .form-group-log:hover::after {
   width: 100%;
   border-bottom: 2px solid #3123ff;
@@ -94,6 +98,7 @@ input {
   font-size: 15px;
   transition: 0.3s;
 }
+
 .btn-submit:hover {
   background-color: cadetblue;
   color: white;
@@ -106,6 +111,7 @@ input {
   margin-top: 20px;
   gap: 5px;
 }
+
 .sign-up a {
   text-decoration: none;
 }
@@ -113,5 +119,3 @@ input {
 .login-title {
   font-family: "destroyregular", sans-serif;
 }
-
-/*# sourceMappingURL=index.css.map */
