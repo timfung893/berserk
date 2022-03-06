@@ -117,14 +117,6 @@ const Product = React.memo((props) => {
     props.initNoti(title + " is added to favorites ", "info");
   }
 
-  // show noti
-  // function showNoti() {
-  //   if (props.showNoti === true) {
-  //     return <Noti />;
-  //   }
-  // }
-  // showNoti();
-
   // related products
   // start with id = 0
   var countProduct = 0;
@@ -193,13 +185,13 @@ const Product = React.memo((props) => {
                 <div className="col-md-8">
                   <Slider className="card text-white product-img" {...settings}>
                     <div className="img me-2">
-                      <img src={data.img1} alt="" />
+                      <img className="product_img" src={data.img1} alt="" />
                     </div>
                     <div className="img">
-                      <img src={data.img2} alt="" />
+                      <img className="product_img" src={data.img2} alt="" />
                     </div>
                     <div className="img">
-                      <img src={data.img3} alt="" />
+                      <img className="product_img" src={data.img3} alt="" />
                     </div>
                   </Slider>
                 </div>

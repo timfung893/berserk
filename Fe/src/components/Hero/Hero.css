@@ -17,7 +17,8 @@
   position: relative;
   height: 100vh;
 
-  background: url("../../../public/img/bg.jpg") no-repeat center/cover;
+  background: url("https://timfung893.github.io/berserk/static/media/bg.55d06f0b92e5bfbafb0b.jpg")
+    no-repeat center/cover;
 }
 
 .hero-motto {

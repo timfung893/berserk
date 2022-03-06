@@ -1,11 +1,11 @@
-.product-img img {
+.product_img {
   max-height: 1000px;
   width: 100%;
   border-radius: 15px;
   margin: 0 auto;
 }
 
-.product-img img:hover {
+.product_img:hover {
   cursor: ew-resize;
 }
 

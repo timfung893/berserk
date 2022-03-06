@@ -17,28 +17,16 @@ const Navbar = (props) => {
 
   // search product with temptext
   function performSearch(e, temp) {
-    // no re-render for products page
     keyWords ? props.getTempText(keyWords) : console.log("no keyword");
   }
-
-  // set navbar toggler for screen width < 1200
-  // function navBar() {
-  //   if (window.innerWidth < 1200) {
-  //     const navToggle = document.querySelector(".navbar-toggler");
-  //     const navShow = document.querySelector(".collapse .show");
-  //     navToggle.style.display = "block";
-  //     navShow.classList.add("show");
-  //   }
-  // }
-  // navBar();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <NavLink className="navbar-brand fw-bolder" to="/">
+        <NavLink className="navbar-brand fw-bolder" to="/berserk">
           <img
             className="icon"
-            src="./img/bs-icon.jpg"
+            src="https://timfung893.github.io/berserk/img/bs-icon.jpg"
             height="80px"
             width="80px"
             alt="icon"
