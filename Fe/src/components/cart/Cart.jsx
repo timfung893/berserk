@@ -22,7 +22,10 @@ const Cart = (props) => {
       <>
         {cartData.map((data) => {
           return (
-            <div className="row justify-content-center" key={data.id}>
+            <div
+              className="row justify-content-center cart-product-bg"
+              key={data.id}
+            >
               <div className="col-md-3 my-2">
                 <div className="card text-white">
                   <img
@@ -54,7 +57,7 @@ const Cart = (props) => {
                 <div className="buttons">
                   <button
                     className="btn btn-outline-info fw-bolder"
-                    onClick={() => alert("thank you for buying!")}
+                    onClick={() => alert("Thank you for buying!")}
                   >
                     Checkout
                   </button>

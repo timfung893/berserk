@@ -103,7 +103,7 @@ const Products = (props) => {
 
   function shortTitle(title) {
     if (window.innerWidth < 1024) {
-      const shortened = title.substring(0, 27);
+      const shortened = title.substring(0, 25) + "...";
       return shortened;
     } else {
       return title;

@@ -17,7 +17,11 @@ const About = () => {
       <div className="container my-5 justify-content-between">
         <div className="row ">
           <div className="col-md-4 about-img-container">
-            <img src="./img/about-desc.jpg" alt="" className="about-img" />
+            <img
+              src="https://timfung893.github.io/berserk/img/about-desc.jpg"
+              alt=""
+              className="about-img"
+            />
           </div>
           <div className="col-md-8 about">
             <h2>One Of The Best Ever!</h2>
@@ -49,7 +53,10 @@ const About = () => {
           </div>
         </div>
         <div className="row about-desc2-container">
-          <img src="./img/about-img1.jpg" alt="" />
+          <img
+            src="https://timfung893.github.io/berserk/img/about-img1.jpg"
+            alt=""
+          />
           <p className="about-desc py-4">
             While the story of Berserk is wonderful, it is nothing without
             Miura’s artistry. Miura combines such elements of Zdzisław Beksiński
