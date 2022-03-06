@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/berserk/static/css/main.12bf4d03.css",
+    "main.css": "/berserk/static/css/main.58e3ae1e.css",
     "main.js": "/berserk/static/js/main.57ff7289.js",
     "reactPlayerYouTube.js": "/berserk/static/js/reactPlayerYouTube.ad782f3a.chunk.js",
     "reactPlayerSoundCloud.js": "/berserk/static/js/reactPlayerSoundCloud.e69d4cb4.chunk.js",
@@ -29,7 +29,7 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/berserk/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/berserk/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/berserk/index.html",
-    "main.12bf4d03.css.map": "/berserk/static/css/main.12bf4d03.css.map",
+    "main.58e3ae1e.css.map": "/berserk/static/css/main.58e3ae1e.css.map",
     "main.57ff7289.js.map": "/berserk/static/js/main.57ff7289.js.map",
     "reactPlayerYouTube.ad782f3a.chunk.js.map": "/berserk/static/js/reactPlayerYouTube.ad782f3a.chunk.js.map",
     "reactPlayerSoundCloud.e69d4cb4.chunk.js.map": "/berserk/static/js/reactPlayerSoundCloud.e69d4cb4.chunk.js.map",
@@ -47,7 +47,7 @@
     "787.0364346b.chunk.js.map": "/berserk/static/js/787.0364346b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.12bf4d03.css",
+    "static/css/main.58e3ae1e.css",
     "static/js/main.57ff7289.js"
   ]
 }
