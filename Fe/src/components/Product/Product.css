@@ -1,6 +1,6 @@
 .slick-slide .product_img {
-  max-height: 1000px;
-  width: 100%;
+  max-height: 1000px !important;
+  width: 100% !important;
   border-radius: 15px;
   margin: 0 auto;
 }
@@ -23,6 +23,10 @@
 .heart:hover {
   color: red;
   transition: all 0.2s ease;
+}
+
+.cart-title {
+  margin-top: 1.5rem !important;
 }
 
 @media screen and (max-width: 1023px) {
