@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
 import "./Navbar.css";
 
 const Navbar = (props) => {
@@ -66,13 +65,22 @@ const Navbar = (props) => {
             </li>
           </ul>
           <div className="login">
-            <NavLink to="/login" className="btn btn-outline-dark ms-2">
+            <NavLink
+              to="/login"
+              className="btn btn-outline-dark ms-2 fw-bolder"
+            >
               <i className="fa fa-sign-in"> Login</i>
             </NavLink>
-            <NavLink to="/register" className="btn btn-outline-dark ms-2">
+            <NavLink
+              to="/register"
+              className="btn btn-outline-dark ms-2 fw-bolder"
+            >
               <i className="fa fa-user-plus "> Register</i>
             </NavLink>
-            <NavLink to="/cart" className="btn btn-outline-dark me-2 ms-2">
+            <NavLink
+              to="/cart"
+              className="btn btn-outline-dark me-2 ms-2 fw-bolder"
+            >
               <i className="fa fa-shopping-cart "> Cart({cart})</i>
             </NavLink>
           </div>

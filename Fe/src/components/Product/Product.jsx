@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
 import { NavLink } from "react-router-dom";
-import "./Product.css";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
 import Noti from "../Noti/Noti";
-
+import "./Product.css";
 // map data
 const Product = React.memo((props) => {
   // const productItemArr = [];
@@ -185,19 +184,34 @@ const Product = React.memo((props) => {
                 <div className="col-md-8">
                   <Slider className="card text-white product-img" {...settings}>
                     <div className="img me-2">
-                      <img className="product_img" src={data.img1} alt="" />
+                      <img
+                        className="product_img"
+                        src={data.img1}
+                        alt=""
+                        style={{ width: `100%` }}
+                      />
                     </div>
                     <div className="img">
-                      <img className="product_img" src={data.img2} alt="" />
+                      <img
+                        className="product_img"
+                        src={data.img2}
+                        alt=""
+                        style={{ width: `100%` }}
+                      />
                     </div>
                     <div className="img">
-                      <img className="product_img" src={data.img3} alt="" />
+                      <img
+                        className="product_img"
+                        src={data.img3}
+                        alt=""
+                        style={{ width: `100%` }}
+                      />
                     </div>
                   </Slider>
                 </div>
                 <div className="col-md-4 details">
                   <div className="card-body">
-                    <h4 className="card-title ">{data.desc}</h4>
+                    <h4 className="card-title mt-3">{data.desc}</h4>
                     <p className="card-text">${data.price}</p>
                     <p className="card-text fst-italic">{`"${data.desc2}"`}</p>
                     <p className="card-text ">{data.desc3}</p>
