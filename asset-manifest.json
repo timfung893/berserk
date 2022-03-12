@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/berserk/static/css/main.3da92988.css",
-    "main.js": "/berserk/static/js/main.8b8a3c47.js",
+    "main.css": "/berserk/static/css/main.19746965.css",
+    "main.js": "/berserk/static/js/main.1d3d54e3.js",
     "reactPlayerYouTube.js": "/berserk/static/js/reactPlayerYouTube.ad782f3a.chunk.js",
     "reactPlayerSoundCloud.js": "/berserk/static/js/reactPlayerSoundCloud.e69d4cb4.chunk.js",
     "reactPlayerVimeo.js": "/berserk/static/js/reactPlayerVimeo.ac7d43dc.chunk.js",
@@ -29,8 +29,8 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/berserk/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/berserk/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/berserk/index.html",
-    "main.3da92988.css.map": "/berserk/static/css/main.3da92988.css.map",
-    "main.8b8a3c47.js.map": "/berserk/static/js/main.8b8a3c47.js.map",
+    "main.19746965.css.map": "/berserk/static/css/main.19746965.css.map",
+    "main.1d3d54e3.js.map": "/berserk/static/js/main.1d3d54e3.js.map",
     "reactPlayerYouTube.ad782f3a.chunk.js.map": "/berserk/static/js/reactPlayerYouTube.ad782f3a.chunk.js.map",
     "reactPlayerSoundCloud.e69d4cb4.chunk.js.map": "/berserk/static/js/reactPlayerSoundCloud.e69d4cb4.chunk.js.map",
     "reactPlayerVimeo.ac7d43dc.chunk.js.map": "/berserk/static/js/reactPlayerVimeo.ac7d43dc.chunk.js.map",
@@ -47,7 +47,7 @@
     "787.0364346b.chunk.js.map": "/berserk/static/js/787.0364346b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3da92988.css",
-    "static/js/main.8b8a3c47.js"
+    "static/css/main.19746965.css",
+    "static/js/main.1d3d54e3.js"
   ]
 }
