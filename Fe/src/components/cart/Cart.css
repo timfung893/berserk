@@ -1,6 +1,4 @@
 .cart-body {
-  /* background: url("https://images3.alphacoders.com/206/206819.png") no-repeat
-    center/cover; */
   min-height: 720px;
   background: url("../../../public/img/zoddGuts.jpg") no-repeat center/cover;
 }
@@ -10,8 +8,6 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-}
-
-.cart-product-bg {
-  background: white;
+  background: rgb(246, 241, 241);
+  padding: 10px;
 }

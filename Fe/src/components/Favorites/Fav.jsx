@@ -22,7 +22,7 @@ const Fav = (props) => {
       <>
         {favData.map((data) => {
           return (
-            <div className="row justify-content-center" key={data.id}>
+            <div className="row justify-content-center cart-fav" key={data.id}>
               <div className="col-md-3 my-2">
                 <div className="card text-white">
                   <img
@@ -32,7 +32,7 @@ const Fav = (props) => {
                   />
                 </div>
               </div>
-              <div className="col-md-4 cart-product-fav">
+              <div className="col-md-4 cart-product-fav my-2">
                 <h4 className="card-title">{data.desc}</h4>
                 <p className="card-text">
                   {data.qty} x ${data.price} = ${data.qty * data.price}

@@ -3,6 +3,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  background: rgb(246, 241, 241);
+  padding: 10px;
 }
 
 .alert-fav {

@@ -35,7 +35,7 @@ const Cart = (props) => {
                   />
                 </div>
               </div>
-              <div className="col-md-4 cart-product">
+              <div className="col-md-4 my-2 cart-product">
                 <h4 className="card-title">{data.desc}</h4>
                 <p className="card-text">
                   {data.qty} x ${data.price} = ${data.qty * data.price}
