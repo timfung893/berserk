@@ -30,7 +30,7 @@ const Product = React.memo((props) => {
 
         products.forEach((product) => {
           const key = product.key;
-          const desc = product.val().desc;
+          const { desc } = product.val();
           const { img } = product.val();
           const { img1 } = product.val();
           const { img2 } = product.val();
@@ -55,10 +55,11 @@ const Product = React.memo((props) => {
         });
         if (componentMounted) {
           setData(productData);
-          // setProduct(productItem);
           setLoading(false);
         }
-        return (componentMounted = false);
+        return () => {
+          componentMounted = false;
+        };
       });
     }
     getProduct();
@@ -129,7 +130,7 @@ const Product = React.memo((props) => {
               return (
                 <div className="col-md-3" key={data.id}>
                   <NavLink
-                    to={`/product/${data.id}`}
+                    to={`/berserk/product/${data.id}`}
                     onClick={() => getProductId(data)}
                   >
                     <img
@@ -228,7 +229,7 @@ const Product = React.memo((props) => {
                     </button>
                     <NavLink
                       className="btn me-2 mb-2 heart"
-                      to={`/product/${data.id}`}
+                      to={`/berserk/product/${data.id}`}
                       onClick={() =>
                         getProductFav(data, data.desc.substring(0, 10) + "...")
                       }

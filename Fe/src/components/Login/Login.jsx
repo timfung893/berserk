@@ -142,7 +142,7 @@ function Login(props) {
         </form>
         <div className="sign-up">
           <p>Not a member?</p>
-          <NavLink to={"/register"}> Click here</NavLink>
+          <NavLink to={"/berserk/register"}> Click here</NavLink>
         </div>
       </div>
     </div>

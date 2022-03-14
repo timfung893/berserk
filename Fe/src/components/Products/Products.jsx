@@ -48,7 +48,7 @@ const Products = (props) => {
             );
 
             setFilter(filtered);
-            console.log("filtered =", searchProducts);
+            console.log("filtered =", filter);
           } else {
             setFilter(productData);
           }
@@ -113,72 +113,81 @@ const Products = (props) => {
   // render data if not loading
 
   const ShowProducts = () => {
-    return (
-      <>
-        <div className="buttons mb-2 justify-content-center">
-          <button
-            className="btn btn-outline-dark me-2 my-2 text-white"
-            onClick={() => setFilter(data)}
-          >
-            All
-          </button>
-          <button
-            className="btn btn-outline-dark me-2 my-2 text-white"
-            onClick={() => filterProduct("Guts")}
-          >
-            Guts
-          </button>
-          <button
-            className="btn btn-outline-dark me-2 my-2 text-white"
-            onClick={() => filterProduct("Casca")}
-          >
-            Casca
-          </button>
-          <button
-            className="btn btn-outline-dark me-2 my-2 text-white"
-            onClick={() => filterProduct("Grif")}
-          >
-            Griffith
-          </button>
-          <button
-            className="btn btn-outline-dark me-2 my-2 text-white "
-            onClick={() => filterProduct("Others")}
-          >
-            Others
-          </button>
+    // show err if no product is found
+    if (filter.length === 0) {
+      return (
+        <div className="bg-white not-found">
+          <p className="fw-bolder display-6 not-found-mes">Product not found</p>
         </div>
+      );
+    } else {
+      return (
+        <>
+          <div className="buttons mb-2 justify-content-center">
+            <button
+              className="btn btn-outline-dark me-2 my-2 text-white"
+              onClick={() => setFilter(data)}
+            >
+              All
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 my-2 text-white"
+              onClick={() => filterProduct("Guts")}
+            >
+              Guts
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 my-2 text-white"
+              onClick={() => filterProduct("Casca")}
+            >
+              Casca
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 my-2 text-white"
+              onClick={() => filterProduct("Grif")}
+            >
+              Griffith
+            </button>
+            <button
+              className="btn btn-outline-dark me-2 my-2 text-white "
+              onClick={() => filterProduct("Others")}
+            >
+              Others
+            </button>
+          </div>
 
-        {filter.map((product) => {
-          return (
-            <div className="col-md-3 my-2" key={product.id}>
-              <div className="card text-black h-100">
-                <img className="card-img-top" src={product.img} alt="img" />
-                <div className="card-body d-flex flex-column justify-content-md-between">
-                  <h4 className="card-title">{shortTitle(product.desc)}</h4>
-                  <p className="card-text">${product.price}</p>
-                </div>
-                <div className="buttons d-flex justify-content-center mx-auto">
-                  <NavLink
-                    className="btn btn-outline-success fw-bolder mb-2"
-                    to="/cart"
-                    onClick={() => getProduct(product)}
-                  >
-                    Buy now
-                  </NavLink>
-                  <NavLink
-                    className="btn btn-outline-info fw-bolder mb-2"
-                    to={`/product/${product.id}`}
-                    onClick={() => getProductId(product)}
-                  >
-                    Details
-                  </NavLink>
+          {filter.map((product) => {
+            return (
+              <div className="col-md-3 my-2" key={product.id}>
+                <div className="card text-black h-100">
+                  <img className="card-img-top" src={product.img} alt="img" />
+                  <div className="card-body d-flex flex-column justify-content-md-between">
+                    <h4 className="card-title">{shortTitle(product.desc)}</h4>
+                    <p className="card-text">${product.price}</p>
+                  </div>
+                  <div className="buttons d-flex justify-content-center mx-auto">
+                    <NavLink
+                      className="btn btn-outline-success fw-bolder mb-2"
+                      to="/berserk/cart"
+                      onClick={() => getProduct(product)}
+                    >
+                      Buy now
+                    </NavLink>
+                    <NavLink
+                      className="btn btn-outline-info fw-bolder mb-2"
+                      to={`/berserk/product/${product.id}`}
+                      onClick={() => getProductId(product)}
+                    >
+                      Details
+                    </NavLink>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </>
-    );
+            );
+          })}
+        </>
+      );
+    }
   };
 
   return (
