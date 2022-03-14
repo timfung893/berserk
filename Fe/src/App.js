@@ -26,13 +26,13 @@ function App(props) {
       <Navbar />
       <Routes>
         <Route path="/berserk" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/favorites" element={<Fav />} />
+        <Route path="/berserk/about" element={<About />} />
+        <Route path="/berserk/products" element={<Products />} />
+        <Route path="/berserk/cart" element={<Cart />} />
+        <Route path="/berserk/product/:id" element={<Product />} />
+        <Route path="/berserk/login" element={<Login />} />
+        <Route path="/berserk/register" element={<Register />} />
+        <Route path="/berserk/favorites" element={<Fav />} />
       </Routes>
       <Footer />
     </div>

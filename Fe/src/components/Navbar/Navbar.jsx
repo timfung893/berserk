@@ -6,7 +6,6 @@ import "./Navbar.css";
 const Navbar = (props) => {
   const cart = props.cart.length;
   const fav = props.fav.length;
-  const temp = props.tempText;
   let keyWords = "";
 
   //  get search text
@@ -15,8 +14,8 @@ const Navbar = (props) => {
   }
 
   // search product with temptext
-  function performSearch(e, temp) {
-    keyWords ? props.getTempText(keyWords) : console.log("no keyword");
+  function performSearch(e) {
+    keyWords ? props.getTempText(keyWords) : e.preventDefault();
   }
 
   return (
@@ -48,37 +47,37 @@ const Navbar = (props) => {
               <NavLink
                 className="nav-link mx-2"
                 aria-current="page"
-                to="/about"
+                to="/berserk/about"
               >
                 About
               </NavLink>
             </li>
             <li className="nav-item fw-bolder mx-2">
-              <NavLink className="nav-link" to="/products">
+              <NavLink className="nav-link" to="/berserk/products">
                 Products
               </NavLink>
             </li>
             <li className="nav-item fw-bolder mx-2">
-              <NavLink className="nav-link" to="/favorites">
+              <NavLink className="nav-link" to="/berserk/favorites">
                 Favorites({fav})
               </NavLink>
             </li>
           </ul>
           <div className="login">
             <NavLink
-              to="/login"
+              to="/berserk/login"
               className="btn btn-outline-dark ms-2 fw-bolder"
             >
               <i className="fa fa-sign-in"> Login</i>
             </NavLink>
             <NavLink
-              to="/register"
+              to="/berserk/register"
               className="btn btn-outline-dark ms-2 fw-bolder"
             >
               <i className="fa fa-user-plus "> Register</i>
             </NavLink>
             <NavLink
-              to="/cart"
+              to="/berserk/cart"
               className="btn btn-outline-dark me-2 ms-2 fw-bolder"
             >
               <i className="fa fa-shopping-cart "> Cart({cart})</i>
@@ -97,8 +96,8 @@ const Navbar = (props) => {
             <NavLink
               className="btn btn-outline-success"
               type="submit"
-              to={"/products"}
-              onClick={(e) => performSearch(e, temp)}
+              to={"/berserk/products"}
+              onClick={(e) => performSearch(e)}
             >
               Search
             </NavLink>
