@@ -2,6 +2,7 @@
   background: url("../../../public/img/guts3.jpg") no-repeat center/cover;
   transition: all 0.2s linear;
   border-radius: 120px 0 120px 0;
+  min-height: 480px;
 }
 
 .buttons {
@@ -24,11 +25,9 @@
 
 .not-found {
   margin: 0 auto;
-
   text-align: center;
-  border-radius: 50px;
-}
-.not-found-mes {
+  width: 70% !important;
+  border-radius: 20px 0 20px 0;
 }
 
 @media screen and (max-width: 1023px) {

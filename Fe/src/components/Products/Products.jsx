@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { connect } from "react-redux";
 import { productSource } from "../firebaseConnect";
-import Skeleton from "react-loading-skeleton";
 import { NavLink } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import "./Products.css";
 
 const Products = (props) => {
@@ -77,17 +78,50 @@ const Products = (props) => {
   const Loading = () => {
     return (
       <>
-        <div className="col-md-3">
-          <Skeleton width={300} height={50} />
+        <div className="d-flex justify-content-center align-content-center">
+          <Skeleton
+            width={40}
+            height={20}
+            count={5}
+            inline={true}
+            style={{ margin: "0 5px" }}
+          />
         </div>
-        <div className="col-md-3">
-          <Skeleton width={300} height={50} />
+        <div className="col-md-3 my-2">
+          <Skeleton
+            style={
+              ({ minWidth: "100px" },
+              { margin: "0 10px" },
+              { minHeight: "300px" })
+            }
+          />
         </div>
-        <div className="col-md-3">
-          <Skeleton width={300} height={50} />
+        <div className="col-md-3 my-2">
+          <Skeleton
+            style={
+              ({ minWidth: "100px" },
+              { margin: "0 10px" },
+              { minHeight: "300px" })
+            }
+          />
         </div>
-        <div className="col-md-3">
-          <Skeleton width={300} height={50} />
+        <div className="col-md-3 my-2">
+          <Skeleton
+            style={
+              ({ minWidth: "100px" },
+              { margin: "0 10px" },
+              { minHeight: "300px" })
+            }
+          />
+        </div>
+        <div className="col-md-3 my-2">
+          <Skeleton
+            style={
+              ({ minWidth: "100px" },
+              { margin: "0 10px" },
+              { minHeight: "300px" })
+            }
+          />
         </div>
       </>
     );
