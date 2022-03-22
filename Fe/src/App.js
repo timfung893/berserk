@@ -42,6 +42,7 @@ function App(props) {
 const mapStateToProps = (state, ownProps) => {
   return {
     showNoti: state.showNoti,
+    productItem: state.productItem,
   };
 };
 export default connect(mapStateToProps, null)(App);

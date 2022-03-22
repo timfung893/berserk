@@ -84,11 +84,13 @@ const Products = (props) => {
             height={20}
             count={5}
             inline={true}
+            baseColor="#d9d9d9"
             style={{ margin: "0 5px" }}
           />
         </div>
         <div className="col-md-3 my-2">
           <Skeleton
+            baseColor="#d9d9d9"
             style={
               ({ minWidth: "100px" },
               { margin: "0 10px" },
@@ -98,6 +100,7 @@ const Products = (props) => {
         </div>
         <div className="col-md-3 my-2">
           <Skeleton
+            baseColor="#d9d9d9"
             style={
               ({ minWidth: "100px" },
               { margin: "0 10px" },
@@ -107,6 +110,7 @@ const Products = (props) => {
         </div>
         <div className="col-md-3 my-2">
           <Skeleton
+            baseColor="#d9d9d9"
             style={
               ({ minWidth: "100px" },
               { margin: "0 10px" },
@@ -116,6 +120,7 @@ const Products = (props) => {
         </div>
         <div className="col-md-3 my-2">
           <Skeleton
+            baseColor="#d9d9d9"
             style={
               ({ minWidth: "100px" },
               { margin: "0 10px" },
@@ -159,8 +164,9 @@ const Products = (props) => {
         <>
           {loading ? (
             <Skeleton
-              width={40}
-              height={20}
+              baseColor="#d9d9d9"
+              width={60}
+              height={30}
               count={5}
               inline={true}
               style={{ margin: "0 5px" }}
@@ -203,6 +209,7 @@ const Products = (props) => {
             <>
               <div className="col-md-3 my-2 ">
                 <Skeleton
+                  baseColor="#d9d9d9"
                   style={
                     ({ minWidth: "100px" },
                     { margin: "0 10px" },
@@ -213,6 +220,7 @@ const Products = (props) => {
               </div>
               <div className="col-md-3 my-2 ">
                 <Skeleton
+                  baseColor="#d9d9d9"
                   style={
                     ({ minWidth: "100px" },
                     { margin: "0 10px" },
@@ -223,6 +231,7 @@ const Products = (props) => {
               </div>
               <div className="col-md-3 my-2 ">
                 <Skeleton
+                  baseColor="#d9d9d9"
                   style={
                     ({ minWidth: "100px" },
                     { margin: "0 10px" },
@@ -233,6 +242,7 @@ const Products = (props) => {
               </div>
               <div className="col-md-3 my-2 ">
                 <Skeleton
+                  baseColor="#d9d9d9"
                   style={
                     ({ minWidth: "100px" },
                     { margin: "0 10px" },
