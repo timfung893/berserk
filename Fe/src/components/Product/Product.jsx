@@ -4,7 +4,6 @@ import { productSource } from "../firebaseConnect";
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import Skeleton from "react-loading-skeleton";
-import Noti from "../Noti/Noti";
 import "./Product.css";
 // map data
 const Product = React.memo((props) => {
