@@ -13,3 +13,26 @@ body {
 .App {
   text-align: center;
 }
+
+.bttop {
+  position: fixed;
+  right: 10px;
+  top: 80%;
+  z-index: 99;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.4 ease;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.bttop:hover {
+  background: rgba(0, 0, 0, 1);
+}
+
+.bttop i {
+  color: white;
+}

@@ -64,12 +64,12 @@ const Products = (props) => {
     getData();
   }, [searchText]);
 
-  // get id for Product component
+  // get product details for Product
   function getProductId(product) {
     props.getProductId(product);
   }
 
-  // get products
+  // get products for Cart
   function getProduct(product) {
     props.getProduct(product);
   }
